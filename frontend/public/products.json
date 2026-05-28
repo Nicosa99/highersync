@@ -1,0 +1,805 @@
+[
+  {
+    "id": "higher-self-protocol",
+    "type": "bundle",
+    "title": "The Higher Self Protocol",
+    "tag": "Core Bundle",
+    "price": "39.00",
+    "old_price": "57.00",
+    "icon": "layers",
+    "image": "img/products/reality-architect.webp",
+    "featured": true,
+    "short_desc": "Binaural frequencies + subliminal affirmations. Three precision-engineered audio protocols for intuition, clarity, and unshakeable focus.",
+    "included_ids": [
+      "third-eye-awakening",
+      "reality-architect",
+      "boundless-energy"
+    ],
+    "long_desc": "The Higher Self Protocol is our foundational stack for cognitive optimization. Each protocol combines precision binaural frequency entrainment with subliminal affirmation layers - working simultaneously on your brainwave state AND your subconscious belief patterns.\n\nBy combining the Reality Architect's 7.83Hz Schumann resonance grounding, Silent Mind's deep Epsilon stillness, and Deep Sleep's Delta-wave restoration, you create a complete daily system for mental clarity and physical recovery. Morning focus. Daytime calm. Restorative nights.\n\nThe dual-layer approach (frequencies + subliminals) is what separates HigherSync from standard binaural beat apps. Your conscious mind relaxes into the frequency entrainment while your subconscious absorbs the affirmation layer without resistance. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "benefits": [
+      "Awaken inner vision via 4.5Hz Theta / 963Hz Pineal resonance",
+      "Morning clarity via 7.83Hz Schumann resonance",
+      "Ignite elite cognitive focus via a powerful 40Hz Gamma spike",
+      "Complete creative and mental energetic optimization"
+    ],
+    "howItWorks": [
+      "Morning: Use Reality Architect to anchor mental clarity and grounded focus.",
+      "Midday/Task: Use Boundless Energy whenever you need a cognitive edge or drive.",
+      "Evening: Use Third Eye Awakening to transition into highly intuitive, deep meditative state."
+    ],
+    "faq": [
+      {
+        "q": "Can I listen to all three in one day?",
+        "a": "Yes, they are designed to be synergistic. We recommend the schedule listed in the 'How It Works' section for maximum efficacy."
+      },
+      {
+        "q": "How quickly will I notice results?",
+        "a": "Most users report feeling noticeably more relaxed after their very first session. Sleep improvements typically become apparent within the first week."
+      }
+    ],
+    "checkout_link": "https://highersync.pay.clickbank.net/?cbitems=HIGHERSELF"
+  },
+  {
+    "id": "deep-sleep",
+    "title": "Deep Sleep",
+    "tag": "Delta 1.5Hz",
+    "price": "19.00",
+    "old_price": "14.90",
+    "icon": "moon",
+    "image": "img/products/deep-sleep.webp",
+    "short_desc": "Advanced binaural protocol to drag your brain into restorative Delta in under 12 minutes.",
+    "benefits": [
+      "Dissolve racing thoughts before your head hits the pillow",
+      "Maximize unbroken REM and restorative deep sleep cycles",
+      "Awaken with extreme clarity and zero morning grogginess",
+      "Transition effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine laying down tonight and feeling the day's mental static effortlessly melt away. Instead of staring at the ceiling with a racing mind, your body begins to sink into the mattress within minutes. You sleep soundly, without interruption, and when morning comes, you open your eyes feeling physically light, emotionally grounded, and imbued with an edge of superhuman clarity. You are ready to execute your vision.\n\nThis seamless transition into rest is not an accident. By utilizing descending isochronic tones that gently guide your brainwaves from waking Alpha down into a profound 1.5Hz Delta state, your mind surrenders without cognitive resistance. Combined with a proprietary dual-mode engine, you can choose to receive this entrainment as a pure subliminal ambient track or an overt guided hypnosis, directly accelerating your natural recovery. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I access this product without paying?",
+        "a": "Yes, this specific protocol is completely free when you join our elite newsletter. We provide it as a foundational tool so you can directly experience the efficacy of neuro-acoustic entrainment before exploring advanced journeys."
+      },
+      {
+        "q": "Do I need to wear stereophonic headphones in bed?",
+        "a": "Because this protocol uses isochronic tones rather than binaural beats, you don't strictly need stereophonic headphones. Playing it softly through a high-quality bedside speaker is highly effective for inducing the necessary 1.5Hz Delta state."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the relaxation script beneath ambient noise, ensuring you remain undisturbed. The hypnosis mode places the vocal guidance in the foreground, giving your active mind a focal point to follow into sleep."
+      },
+      {
+        "q": "Will this leave me feeling groggy the next morning?",
+        "a": "Unlike chemical sleep aids that unnaturally force unconsciousness, this audio merely aligns your brain's natural rhythms. You will awaken feeling refreshed, physically rested, and completely free from any synthetic morning lethargy or residual brain fog."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=deep-sleep",
+    "reviews": [
+      {
+        "name": "Jana",
+        "rating": 5,
+        "text": "Guys, no joke, I'm out in 10 minutes. Finally something that actually works without feeling totally wrecked the next morning."
+      },
+      {
+        "name": "Torsten",
+        "rating": 5,
+        "text": "Use it every night. Best investment in my recovery in a long time."
+      },
+      {
+        "name": "Melli",
+        "rating": 5,
+        "text": "Recommended it to my girlfriend, she's finally sleeping through the night too. Thanks!"
+      }
+    ]
+  },
+  {
+    "id": "third-eye-awakening",
+    "title": "Third Eye Awakening",
+    "tag": "Theta 4.5Hz",
+    "price": "19.00",
+    "icon": "eye",
+    "image": "img/products/third-eye-awakening.webp",
+    "short_desc": "Precision-tuned 963Hz Pineal resonance. Increases intuition and vivid hypnagogic capability.",
+    "benefits": [
+      "Experience vivid hypnagogic imagery without conscious effort",
+      "Awaken profound intuitive guidance and gut feelings",
+      "Transition easily into deeply restorative meditative states",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis",
+      "Remember your dreams with stunning visual clarity"
+    ],
+    "long_desc": "Imagine closing your eyes and feeling the familiar mental fog begin to lift, replaced by a crystalline sense of inner vision. Instead of forcing meditation or struggling to quiet your mind, you drift effortlessly into a rich, hypnagogic state where intuition flows naturally. Your daily decisions feel lighter, guided by an unspoken, quiet certainty that you haven't felt in years.\n\nThis awakening is achieved by bypassing the superficial chatter of the waking mind. Utilizing a precise 963Hz Solfeggio core\u2014historically known to resonate the pineal gland\u2014wrapped inside a steady 4.5Hz shamanic Theta beat, this audio protocol pulls your brainwaves down into deep trance. In this receptive space, your subconscious effortlessly absorbs the embedded subliminal programming or overt guided hypnosis, allowing your inherent esoteric faculties to open safely and completely. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "How soon will I notice changes in my intuition?",
+        "a": "Many users report experiencing vivid hypnagogic imagery and deepened dream states during their very first session. Systemic shifts in waking intuition and spontaneous 'gut feelings' typically integrate as you continue to steep your subconscious in the 4.5Hz Theta frequency."
+      },
+      {
+        "q": "Do I need headphones to use this protocol?",
+        "a": "Stereo headphones are strictly required to bridge the hemispheres of your brain. The auditory illusion of the 4.5Hz shamanic Theta beat is created by delivering mathematically offset frequencies directly to your left and right auditory pathways."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the esoteric programming beneath a dark noise floor and ambient wash, letting your subconscious do the work silently. The hypnosis mode brings the vocal guidance forward, allowing your conscious mind to actively participate in the awakening."
+      },
+      {
+        "q": "Are there any side effects to opening the pineal gland?",
+        "a": "You may experience mild tingling in the center of your forehead or an influx of vivid, emotionally rich dreams. This is a highly natural neuro-acoustic response signaling that calcified neurological pathways are simply beginning to open and flush."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=third-eye-awakening",
+    "reviews": [
+      {
+        "name": "Elena",
+        "rating": 5,
+        "text": "Very intense experience. Had a crazy tingling on my forehead the first time. My dreams are much more vivid now."
+      },
+      {
+        "name": "Chris",
+        "rating": 4,
+        "text": "Exciting protocol. You really have to take your time and have good headphones, otherwise it doesn't do much."
+      },
+      {
+        "name": "Inspirations_Mind",
+        "rating": 5,
+        "text": "The 963Hz resonance is really palpable. Use it for my daily meditation."
+      }
+    ]
+  },
+  {
+    "id": "absolute-freedom",
+    "title": "Absolute Freedom",
+    "tag": "Delta 2.0Hz",
+    "price": "19.00",
+    "icon": "bird",
+    "image": "img/products/absolute-freedom.webp",
+    "short_desc": "Release emotional baggage perfectly safely using a 528Hz Solfeggio / Delta dissolution stack.",
+    "benefits": [
+      "Dissolve deep-rooted emotional blockages effortlessly overnight",
+      "Release the physical weight of past somatic trauma",
+      "Awaken feeling fundamentally lighter and untethered",
+      "Transition seamlessly between hidden subliminals and guided hypnosis",
+      "Restore your baseline of unshakeable inner calm"
+    ],
+    "long_desc": "Imagine lying down and feeling a physical heaviness you've carried for years simply drain out of your body. Instead of processing old emotions through exhausting mental loops, your nervous system finally receives permission to let them go. The grip of past trauma fades, and you awaken feeling fundamentally untethered, moving through your life with a quiet, resilient lightness.\n\nThis release happens because your critical mind is entirely bypassed. Utilizing a profound 2Hz Delta frequency paired with a mathematically pure 528Hz Solfeggio core\u2014historically associated with deep cellular repair\u2014this protocol drops you into a state of total cognitive surrender. In this oceanic void, your subconscious effortlessly absorbs the embedded subliminal release programming or the overt guided hypnosis, allowing ancient emotional blockages to wash away without resistance. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "When is the best time to use this protocol?",
+        "a": "This journey is specifically engineered for evening or overnight use. Because it entrains your brain to 2Hz Delta, it will induce profound physical and mental rest, making it inappropriate for driving or focused daytime work."
+      },
+      {
+        "q": "Do I need headphones to experience the release?",
+        "a": "Stereo headphones are strictly required. The pure 2Hz Delta entrainment relies on delivering mathematically precise, offset frequencies to each ear, allowing the illusion of the beat to form directly inside your auditory cortex."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the emotional release affirmations beneath a warm, oceanic noise floor, operating entirely below your conscious threshold. The hypnosis mode brings the vocal guidance to the foreground for active participation in the letting-go process."
+      },
+      {
+        "q": "Is it normal to feel emotional after listening?",
+        "a": "You may experience a profound sense of physical lightness or even mild, spontaneous emotional release upon waking. This is a highly natural somatic response, indicating that long-held neurological tension is finally successfully flushing out of your system."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=absolute-freedom",
+    "reviews": [
+      {
+        "name": "Hannes",
+        "rating": 5,
+        "text": "Helped me a lot to let go of old baggage. You just feel... lighter afterwards. Hard to describe, you have to experience it."
+      },
+      {
+        "name": "Sabine",
+        "rating": 5,
+        "text": "The combination of Delta and Solfeggio is extremely relaxing. Tears flowed, but in a positive way."
+      },
+      {
+        "name": "Lukas",
+        "rating": 4,
+        "text": "Good release tool. Helps me come down after stressful work days."
+      }
+    ]
+  },
+  {
+    "id": "creative-flow",
+    "title": "Creative Flow Unlocked",
+    "tag": "Theta 6.3Hz",
+    "price": "19.00",
+    "icon": "magnet",
+    "image": "img/products/law-of-attraction-unlocked.webp",
+    "short_desc": "Align your subconscious creative engine with 432Hz universal coherence for effortless flow states.",
+    "benefits": [
+      "Dissolve chronic resistance blocking your creative alignment",
+      "Awaken your inherent capacity to access flow states on demand",
+      "Experience immediate creative breakthroughs without exhausting mental effort",
+      "Restore a foundational sense of creative certainty",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine moving through your day feeling an absolute, quiet certainty that ideas are flowing through you. The frantic need to force creativity, push harder, or worry about deadlines has vanished. Instead of feeling disconnected from your creative source, you experience a magnetic pull where inspiration simply materializes around you. The heavy friction of creating dissolves entirely, replaced by pure synchronicity.\n\nThis shift happens because we align the deepest tier of your energetic state. Utilizing a mathematically coherent 432Hz base frequency\u2014paired with a symmetrical 6.3Hz Theta pulse\u2014this protocol draws your brainwaves below the threshold of conscious doubt. In this state of total vibrational match, your subconscious effortlessly absorbs the embedded flow programming or guided hypnosis, recalibrating your creative capacity from the inside out. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "How soon do I feel the shift in my creative output?",
+        "a": "Many users report experiencing a deep internal calm and spontaneous 'flow states' during their very first 6.3Hz Theta session. Concrete creative breakthroughs typically begin coalescing as you continue to stabilize your frequency."
+      },
+      {
+        "q": "Do I need headphones to experience this alignment?",
+        "a": "Stereo headphones are strictly required to merge the left and right hemispheres of your brain. The illusion of the 6.3Hz Theta beat is created by delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the flow affirmations tightly beneath a clinically filtered noise floor, programming you quietly. The hypnosis mode pulls the vocal guidance to the perceptual surface, allowing you to actively visualize the unfolding creative process."
+      },
+      {
+        "q": "Can I use this along with traditional brainstorming techniques?",
+        "a": "Absolutely. In fact, using this 432Hz protocol immediately before or during your creative practice anchors the mental flow into deep, somatic reality, amplifying the speed at which your subconscious accepts new ideas."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=creative-flow",
+    "reviews": [
+      {
+        "name": "Vanessa",
+        "rating": 5,
+        "text": "I feel like I'm literally attracting ideas now. Got two new projects within a week!"
+      },
+      {
+        "name": "Oliver B.",
+        "rating": 5,
+        "text": "Flow states were always elusive for me, but with the frequencies it feels logical. You get into a completely different state."
+      },
+      {
+        "name": "Tanja",
+        "rating": 4,
+        "text": "Very nice sound. Helps me keep the focus on my creative work."
+      }
+    ]
+  },
+  {
+    "id": "unshakeable-happiness",
+    "title": "Unshakeable Happiness",
+    "tag": "Alpha 12.0Hz",
+    "price": "19.00",
+    "icon": "sun",
+    "image": "img/products/unshakeable-happiness.webp",
+    "short_desc": "Spontaneous serotonin influx via 12Hz High Alpha Flow and deep 7.83Hz Schumann grounding.",
+    "benefits": [
+      "Experience a spontaneous influx of serotonin and mental lightness",
+      "Awaken physically grounded in the 7.83Hz Schumann resonance",
+      "Dissolve heavy rumination and depressive thought cycles organically",
+      "Restore a foundational perspective of warmth and positivity",
+      "Transition effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine waking up and the very air feels perceptibly lighter. The background hum of anxiety or dullness has completely evaporated, replaced by a radiant, grounded warmth. Instead of forcing yourself to 'be positive,' you naturally find yourself smiling at small moments. You move through your day anchored in a deep, unshakeable flow\u2014a feeling of pure certainty that life is overwhelmingly supportive, even in chaos.\n\nThis shift is catalyzed because your biology recognizes these frequencies. Utilizing a clean 12Hz High Alpha stream to stimulate euphoric flow states, directly paired with a 7.83Hz Schumann resonance anchor that grounds your body to the Earth's natural frequency. Immersed in this dual-entrainment, your nervous system effortlessly absorbs the embedded subliminal joy programming or overtly guided hypnosis, elevating your emotional set point safely and permanently. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I use this audio while working or studying?",
+        "a": "Yes, the 12Hz High Alpha frequency is specifically designed for waking flow states. Many users play this softly in the background to sustain an uplifted mood, heightened creativity, and deep mental focus throughout their workday."
+      },
+      {
+        "q": "Why do I need to wear headphones if this increases serotonin?",
+        "a": "Stereo headphones are strictly required to merge the euphoric entrainment across both hemispheres of your brain. The illusion of the 12Hz beat and the 7.83Hz Schumann resonance is created by delivering mathematically offset frequencies simultaneously to each ear."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the joy-inducing affirmations beneath a warm, clinical noise floor, elevating your mood without distracting you. The hypnosis mode brings the vocal guidance to the surface, ideal for active, inward contemplation."
+      },
+      {
+        "q": "Are the effects temporary, or do they build over time?",
+        "a": "While you will feel a spontaneous rush of lightness immediately, your neurochemistry permanently adapts with consistent use. As you spend more time in 12Hz Alpha, your physical baseline for unshakeable joy naturally resets higher."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=unshakeable-happiness",
+    "reviews": [
+      {
+        "name": "Benni",
+        "rating": 5,
+        "text": "Best mood after getting up! The 12Hz Alpha frequency kicks in really well."
+      },
+      {
+        "name": "Lisa",
+        "rating": 5,
+        "text": "Feel much more balanced overall. Small things don't annoy me as quickly anymore."
+      },
+      {
+        "name": "Klaus",
+        "rating": 5,
+        "text": "Works great for me as a mood lifter on grey days."
+      }
+    ]
+  },
+  {
+    "id": "inner-peace",
+    "title": "Inner Peace",
+    "tag": "Delta 1.5Hz",
+    "price": "19.00",
+    "icon": "waves",
+    "image": "img/products/inner-peace.webp",
+    "short_desc": "Quiet chronic anxiety effortlessly using a 4Hz Theta intercept into absolute Delta safety.",
+    "benefits": [
+      "Dissolve physical tension locked deep within your nervous system",
+      "Experience a spontaneous somatic shutdown of chronic anxiety",
+      "Awaken feeling completely grounded in pure 1.5Hz Delta safety",
+      "Restore a foundational sense of inner stillness",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine lying down, and instead of your mind looping through tomorrow's worries, your body takes over with an immediate, heavy sigh. The tightness in your chest dissipates, the shallow breathing vanishes, and the persistent hum of hyper-vigilance simply clicks off. You don't have to try to relax. You are pulled downward into a vast, oceanic sense of safety, surrounded by a quiet stillness that nothing on the outside can disturb.\n\nThis physical reset occurs because your nervous system is literally intercepted. Utilizing an initial 4Hz Theta pulse to catch racing thoughts, this protocol systematically draws your brainwaves down into deep 1.5Hz Delta coherence. Anchored by a 528Hz Solfeggio layer, your subconscious effortlessly absorbs the embedded calming subliminal programming or the guided hypnosis narrative, dissolving the foundations of stress. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I use this during a panic attack or intense anxiety?",
+        "a": "Yes, the 4Hz Theta intercept is intentionally designed to catch an overactive mind immediately. By providing a heavy sonic anchor, you don't need to force your breathing\u2014the frequency mathematically slows your neurological response."
+      },
+      {
+        "q": "Should I wear headphones if I feel overwhelmed?",
+        "a": "Stereo headphones are strictly required to merge the calming entrainment across the hemispheres of your brain. The illusion of the 1.5Hz Delta shutdown relies on delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the anti-anxiety affirmations beneath a surgical noise floor, commanding your subconscious quietly. The hypnosis mode pulls the vocal guidance up to the perceptual surface, allowing you to follow the narrator step-by-step."
+      },
+      {
+        "q": "Is it safe to fall asleep to this protocol?",
+        "a": "Absolutely. Because it terminates in 1.5Hz Delta coherence\u2014the identical frequency range of deep, dreamless restorative sleep\u2014fading out into total rest is the most natural and profound outcome of this journey."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=inner-peace",
+    "reviews": [
+      {
+        "name": "Steffi",
+        "rating": 5,
+        "text": "My anxiety has gotten so much better. When I notice the restlessness coming, I listen to the protocol and I'm immediately back with myself."
+      },
+      {
+        "name": "Maximilian",
+        "rating": 5,
+        "text": "Pure peace. The world out there can wait."
+      },
+      {
+        "name": "Julia",
+        "rating": 5,
+        "text": "Absolutely recommended for everyone under constant stress."
+      }
+    ]
+  },
+  {
+    "id": "lucid-dreaming",
+    "title": "Lucid Dreamer",
+    "tag": "Gamma 40.0Hz",
+    "price": "19.00",
+    "icon": "sparkles",
+    "image": "img/products/lucid-dreaming.webp",
+    "short_desc": "Spark conscious REM awareness directly into the dream state via a 40Hz split-band Gamma shift.",
+    "benefits": [
+      "Experience safe and controlled physical sleep paralysis nightly",
+      "Awaken your conscious neocortex directly inside the dream state",
+      "Dissolve fear and disorientation during hypnagogic transitions",
+      "Explore boundless, vivid astral environments with total clarity",
+      "Transition effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine your body feeling heavier and heavier, sinking into the mattress until it completely falls asleep\u2014yet your mind remains perfectly, crystalline awake. Instead of drifting into unconsciousness, you step smoothly across the boundary into a vivid, hyper-realistic dreamscape where you are entirely in control. The confusion and randomness of normal dreaming are gone, replaced by absolute lucidity.\n\nThis separation is achieved through precise split-band neural entrainment. Utilizing a heavy 4Hz Theta base layer to physically force the body into sleep, this protocol simultaneously injects a mathematically calculated 40Hz Gamma spike directly into your neocortex. In this dual-state, your physical form rests deeply while your conscious awareness remains sharp, allowing you to absorb the embedded lucidity programming or guided hypnosis directly into the REM cycle. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Is sleep paralysis safe to experience?",
+        "a": "Yes. Sleep paralysis (REM atonia) is a completely natural biological process that happens every night. This protocol simply allows you to remain consciously awake to witness it, forming the bridge directly into a lucid dream."
+      },
+      {
+        "q": "Do I need headphones to trigger the 40Hz Gamma spike?",
+        "a": "Stereo headphones are strictly required to merge the split-band frequencies across both hemispheres. The illusion of the 40Hz lucidity spark relies on delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the lucid triggers beneath a dark noise floor, planting seeds of awareness silently. The hypnosis mode pulls the vocal guidance to the perceptual surface, actively leading you across the hypnagogic threshold."
+      },
+      {
+        "q": "Will this disrupt my overall sleep quality?",
+        "a": "No. The foundational layer of this protocol relies on deep 4Hz Theta frequencies, which heavily promote physical restoration. You will awaken feeling physically rested, alongside the profound mental clarity of having experienced conscious REM."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=lucid-dreaming",
+    "reviews": [
+      {
+        "name": "Nico",
+        "rating": 5,
+        "text": "First lucid dream after only 4 nights! The Gamma spikes are insane."
+      },
+      {
+        "name": "DreamWalker",
+        "rating": 5,
+        "text": "Very effective. The transitions into the dream state are much more conscious."
+      },
+      {
+        "name": "Sven",
+        "rating": 4,
+        "text": "You have to stick with it, but it's worth it. The quality of the audios is top-notch."
+      }
+    ]
+  },
+  {
+    "id": "become-attractive",
+    "title": "Become Attractive",
+    "tag": "Alpha 8.0Hz",
+    "price": "19.00",
+    "icon": "heart",
+    "image": "img/products/become-attractive-sublminal.webp",
+    "short_desc": "Reprogram your nervous system to project raw, magnetic physical charisma.",
+    "benefits": [
+      "Dissolve chronic social tension and high-beta anxiety",
+      "Experience a spontaneous, deep physical relaxation in your chest",
+      "Awaken projecting the quiet, magnetic charisma of genuine safety",
+      "Restore natural, flowing relational dynamics with others",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine walking into a crowded room and feeling not a shred of social anxiety. The desperate need to perform, posture, or overthink your every movement has entirely dissolved. Instead of a racing heart, your physical presence feels deeply grounded and radiating an effortless, quiet warmth. People are inexplicably drawn to you, instinctively sensing the authentic safety and charisma of a relaxed nervous system.\n\nThis magnetism isn't luck; it is a purely energetic shift. Utilizing a precise 8Hz Alpha entrainment\u2014the sweet spot for stimulating the vagus nerve\u2014this protocol rapidly drops your high-beta anxiety. Anchored perfectly to a 639Hz Solfeggio core designed for relational resonance, your subconscious effortlessly absorbs the embedded attraction programming or guided hypnosis, reprogramming the energetic frequency you project to the world. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I listen to this right before a social event?",
+        "a": "Yes, this protocol is highly effective as a rapid pre-social reset. Many users spend 10-15 minutes steeping their nervous system in the 8Hz Alpha state before meetings or dates to immediately project an grounded, magnetic aura."
+      },
+      {
+        "q": "Do I need headphones to experience the somatic shift?",
+        "a": "Stereo headphones are strictly required to bridge the calming entrainment across the hemispheres of your brain. The illusion of the 8Hz Alpha drop relies on delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the deep charisma affirmations beneath a warm, enveloping noise floor, commanding your aura silently. The hypnosis mode pulls the vocal guidance to the perceptual surface, allowing active, psychological realignment."
+      },
+      {
+        "q": "Is this manipulation, or is it natural?",
+        "a": "Because this protocol utilizes a 639Hz harmonic core paired with 8Hz Alpha entrainment, it is deeply natural. You aren't forcing the world to react to you\u2014you are simply removing the internal fear and high-beta tension blocking your true magnetism."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=become-attractive",
+    "reviews": [
+      {
+        "name": "Pascal",
+        "rating": 5,
+        "text": "Sounds weird, but I just feel more present in meetings or when going out. People somehow react more positively to me."
+      },
+      {
+        "name": "Anja",
+        "rating": 5,
+        "text": "My self-esteem has increased enormously. You just radiate that."
+      },
+      {
+        "name": "Marco",
+        "rating": 5,
+        "text": "The Alpha drops help me shed my social anxiety. Really strong."
+      }
+    ]
+  },
+  {
+    "id": "silent-mind",
+    "title": "Silent Mind",
+    "tag": "Epsilon 0.5Hz",
+    "price": "19.00",
+    "icon": "circle",
+    "image": "img/products/silent-mind.webp",
+    "short_desc": "Erase profound mental chatter instantly by dropping into a slow 0.5Hz Epsilon void.",
+    "benefits": [
+      "Experience a sudden, profound cessation of racing thoughts",
+      "Awaken your capacity to sit comfortably in total inner silence",
+      "Dissolve obsessive overthinking without forcing meditation",
+      "Restore the sensation of boundless, empty space inside your head",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine seeking refuge from a relentless, noisy day, lying down, and waiting for the 10,000 thoughts to rush in\u2014but nothing arrives. Instead of a crowded mind fighting for control, you encounter an immense, pitch-black, silent void. The frantic pressure to solve problems or replay the past entirely ceases. Your physical body goes numb, and your awareness simply expands into absolute, pristine nothingness.\n\nThis stillness is achieved by forcefully pulling the brain's internal clock speed downward. Utilizing an incredibly heavy, dark noise floor anchored to a 106.5Hz sub-root, this protocol sweeps into pure 0.5Hz Epsilon entrainment. Symmetrically balanced against a hauntingly faint 852Hz harmonic core, your subconscious effortlessly absorbs the embedded silence programming or overt guided hypnosis, releasing all analytical grip. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I use this audio for deep, restorative sleep?",
+        "a": "Yes. Due to the extreme depth of the 0.5Hz Epsilon entrainment, the overwhelming physical effect is a profound sense of numbing gravity. Fading out into dreamless, deep physical rest is highly common and an optimal use of the protocol."
+      },
+      {
+        "q": "Do I need headphones to experience the Epsilon void?",
+        "a": "Stereo headphones are strictly required to bridge the extreme sensory reduction across both hemispheres. The illusion of the 0.5Hz Epsilon drop relies on delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the silence affirmations beneath an incredibly deep, 90Hz filtered noise floor, programming the stillness without demanding attention. The hypnosis mode pulls the vocal guidance up, leading your conscious mind into the void."
+      },
+      {
+        "q": "Is it normal to feel completely detached from my body?",
+        "a": "Yes, losing the physical sensation of your limbs is a hallmark of reaching the 0.5Hz Epsilon baseline. It indicates that the protocol has successfully shifted your brainwaves below the frequency required to maintain somatic awareness."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=silent-mind",
+    "reviews": [
+      {
+        "name": "Robert",
+        "rating": 5,
+        "text": "Finally peace and quiet. The carousel of thoughts just stops spinning. Incredibly relaxing."
+      },
+      {
+        "name": "Ina",
+        "rating": 5,
+        "text": "Perfect for the lunch break to completely clear the head."
+      },
+      {
+        "name": "Uwe",
+        "rating": 5,
+        "text": "The depth of the Epsilon frequency is almost meditative-hypnotic."
+      }
+    ]
+  },
+  {
+    "id": "boundless-energy",
+    "title": "Boundless Energy",
+    "tag": "Gamma 40.0Hz",
+    "price": "19.00",
+    "icon": "zap",
+    "image": "img/products/boundless-energy.webp",
+    "short_desc": "Ignite elite cognitive focus via a powerful 40Hz Gamma spike. Free from caffeine crashes.",
+    "benefits": [
+      "Dissolve chronic brain fog and lethargy within minutes",
+      "Awaken a spontaneous, physical drive to execute complex tasks",
+      "Experience sustained flow states free from jittery caffeine crashes",
+      "Restore instant clarity and high-voltage neural activity",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine sitting down at your desk and the heavy, sluggish fog behind your eyes simply snaps apart. Instead of reaching for a third coffee to force productivity, your body tingles with an effortless, clean ignition. Ideas arrive mathematically sharp, distractions become meaningless, and the massive project ahead of you transforms from an exhausting burden into an exhilarating flow. You don't have to try to focus.\n\nThis high-voltage state occurs through highly engineered split-band entrainment. By immediately lifting your neocortex with a 40Hz Gamma spike wrapped over a 417Hz core, we ignite kinetic drive. Simultaneously, a deeply hidden 6Hz Theta frequency holds your subconscious firewall open. Immersed in this dual-frequency, your nervous system effortlessly absorbs the embedded kinetic subliminals or overt guided hypnosis, resetting your baseline drive. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I use this protocol before the gym or a major meeting?",
+        "a": "Yes, this protocol is highly effective as an elite pre-performance tool. The rapid, 12-second panning rotation and 40Hz Gamma spike physically stimulate blood flow and neuro-electric activity, replacing caffeine or synthetic stimulants effortlessly."
+      },
+      {
+        "q": "Do I need headphones to trigger the 40Hz Gamma spike?",
+        "a": "Stereo headphones are strictly required to merge the split-band frequencies across both hemispheres. The illusion of the 40Hz Gamma entrainment relies on delivering mathematically offset frequencies directly into each auditory canal."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the energy-inducing affirmations beneath a sweeping noise floor, passively fueling your focus while you work. The hypnosis mode pulls the vocal guidance to the surface, actively psyching your mind up before action."
+      },
+      {
+        "q": "Will this leave me anxious or unable to sleep later?",
+        "a": "No. Unlike caffeine, which blocks adenosine receptors and builds sleep debt, 40Hz Gamma entrainment simply syncs your brainwaves to an optimized rhythm. Once you stop the audio, your brain naturally winds down without a synthetic crash."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=boundless-energy",
+    "reviews": [
+      {
+        "name": "Tim",
+        "rating": 5,
+        "text": "Replaces my third coffee at noon. You're wide awake and focused afterwards, but without the jitters."
+      },
+      {
+        "name": "Sandra",
+        "rating": 5,
+        "text": "Use it before working out. Gives me the necessary drive to really pull through."
+      },
+      {
+        "name": "Leo",
+        "rating": 5,
+        "text": "Focus level 100. Brainfog is gone immediately."
+      }
+    ]
+  },
+  {
+    "id": "unshakeable-self-confidence",
+    "title": "Unshakeable Confidence",
+    "tag": "Theta 6.0Hz",
+    "price": "19.00",
+    "icon": "flame",
+    "image": "img/products/unshakeable-self-confidence.webp",
+    "short_desc": "Erase profound self-doubt from the root level via 6Hz deep Theta neuroplasticity.",
+    "benefits": [
+      "Experience a sudden evaporation of imposter syndrome overnight",
+      "Awaken holding a quiet, grounded internal fire without posturing",
+      "Dissolve people-pleasing tendencies from the deepest neurological root",
+      "Restore instant clarity when speaking your boundaries",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine walking into a room where you used to feel small, and the suffocating feeling of being judged simply isn't there anymore. The compulsive need to apologize, over-explain, and seek external validation has completely snapped out of existence. Your stomach is settled, your posture is rooted, and your voice carries the calm, heavy resonance of someone who fundamentally belongs exactly where they stand.\n\nThis shift transpires precisely because your ego's defensive firewall is bypassed. Utilizing a profound 6Hz deep Theta frequency paired with a mathematically resonant 396Hz Solfeggio core\u2014historically utilized to sever the frequencies of sheer fear\u2014this protocol drops you into a highly neuroplastic state. In this hypnotic depth, your subconscious effortlessly absorbs the embedded confidence programming or overt guided hypnosis, releasing self-doubt permanently. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "When is the most effective time to run this protocol?",
+        "a": "This journey is ideal for the evening hours, right as your brain begins its natural descent into Theta. By steeping your subconscious in the 396Hz core overnight, the affirmations integrate fully while cognitive resistance sleeps."
+      },
+      {
+        "q": "Do I need headphones to experience the Theta confidence?",
+        "a": "Stereo headphones are strictly required to merge the liberating entrainment across both hemispheres of your brain. The illusion of the 6Hz deep Theta drop relies on delivering mathematically offset frequencies directly into each ear."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the anti-fear affirmations beneath a heavy, 120Hz filtered noise floor, operating silently while you rest. The hypnosis mode pulls the vocal guidance to the perceptual surface, allowing you to actively rebuild your self-image."
+      },
+      {
+        "q": "If I already have bad social anxiety, will this actually work?",
+        "a": "Yes. The very architecture of 6Hz deep Theta entrainment physically forces your brainwaves below the frequency required to sustain acute social panic. Your nervous system assumes an artificial calm, accepting the new programming as physiological fact."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=unshakeable-self-confidence",
+    "reviews": [
+      {
+        "name": "Miriam",
+        "rating": 5,
+        "text": "No more imposter syndrome! I stand much more firmly by my opinion and my abilities now."
+      },
+      {
+        "name": "Daniel",
+        "rating": 5,
+        "text": "The inner fire is burning again. Very powerful protocol."
+      },
+      {
+        "name": "Sophie",
+        "rating": 5,
+        "text": "Helped me set boundaries and say 'no' without feeling bad."
+      }
+    ]
+  },
+  {
+    "id": "reality-architect",
+    "title": "Reality Architect",
+    "tag": "Schumann 7.83Hz",
+    "price": "19.00",
+    "icon": "hexagon",
+    "image": "img/products/reality-architect.webp",
+    "short_desc": "Ground your intentions to Earth's natural frequency via an immediate 7.83Hz Schumann drop.",
+    "benefits": [
+      "Experience a sudden, immense gravitational stillness inside your body",
+      "Awaken holding a profound, quiet certainty over your daily focus",
+      "Dissolve chronic mental chatter by dropping into Earth's resonance",
+      "Restore the immediate, somatic feeling of grounded clarity",
+      "Toggle effortlessly between subliminal whispers and guided hypnosis"
+    ],
+    "long_desc": "Imagine sitting completely still, the frantic mental chatter of your ordinary day has simply ceased to exist. Instead of fighting for peace or attempting elaborate meditation techniques, your body drops like a stone into a vast, gravitational stillness. You feel the weight of the Earth's own frequency pressing through you, anchoring your presence directly into the present moment. There is no resistance. There is only immediate, crystalline grounding.\n\nThis instantaneous grounding is achieved through aggressive frequency immersion. Utilizing an immediate, zero-ramp 7.83Hz Schumann resonance drop paired with a 174Hz foundational carrier, this protocol bypasses your mental defenses entirely. There is no gradual descent. You are pulled directly into the mathematical grid of the planet itself. In this state, your subconscious effortlessly absorbs the embedded grounding programming or guided hypnosis, allowing your mental clarity to crystallize. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "faq": [
+      {
+        "q": "Can I handle this direct drop if I am an anxious person?",
+        "a": "Yes. The sudden immersion into 7.83Hz Schumann resonance is designed to short-circuit the anxious mind entirely. Instead of giving your brain time to fight the relaxation, the extreme physical grounding of the frequencies forces somatic surrender instantly."
+      },
+      {
+        "q": "Do I need headphones to access this grounding state?",
+        "a": "Stereo headphones are strictly required to bridge the extreme grounding entrainment across both hemispheres. The physical gravity of the 7.83Hz drop relies on delivering mathematically offset frequencies simultaneously into your left and right auditory canals."
+      },
+      {
+        "q": "What is the difference between subliminal and hypnosis modes?",
+        "a": "The subliminal mode masks the grounding affirmations beneath a deeply filtered, 115Hz cut-off noise floor, anchoring presence silently. The hypnosis mode brings the vocal command to the surface, directing the immediate grounding process."
+      },
+      {
+        "q": "When is the best time to use this?",
+        "a": "Morning use is ideal to anchor mental clarity for the day ahead. The 7.83Hz Schumann resonance aligns your nervous system with Earth's natural frequency, creating a foundation of grounded focus."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?product=reality-architect",
+    "reviews": [
+      {
+        "name": "Archi_Tech",
+        "rating": 5,
+        "text": "This one is for advanced users. You feel the grounding immediately. The Schumann resonance is perfectly embedded."
+      },
+      {
+        "name": "Petra",
+        "rating": 5,
+        "text": "Feel like the director of my own life. Very deep effect."
+      },
+      {
+        "name": "Julian",
+        "rating": 5,
+        "text": "Hefty tool. Nothing for on the side, you should fully engage with it."
+      }
+    ]
+  },
+  {
+    "id": "tranquility-suite",
+    "type": "bundle",
+    "title": "The Tranquility Suite",
+    "tag": "Peace Stack",
+    "price": "34.00",
+    "old_price": "48.00",
+    "icon": "wind",
+    "image": "img/products/inner-peace.webp",
+    "short_desc": "Complete nervous system reset. From chronic anxiety to deep restorative silence.",
+    "included_ids": [
+      "inner-peace",
+      "silent-mind",
+      "deep-sleep"
+    ],
+    "long_desc": "The Tranquility Suite is a neurological sanctuary. Designed for high-stress individuals, this stack provides the tools to shut down the fight-or-flight response at will. By bridging the gap between clinical Delta states and the profound Epsilon void, you allow your brain to experience a level of rest and silence that most people never achieve in their lifetime. It is the ultimate insurance policy against burnout and mental fatigue. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "benefits": [
+      "Immediate somatic stress shutdown",
+      "Profound mental silence on demand",
+      "Optimized REM recovery cycles",
+      "Total nervous system recalibration"
+    ],
+    "howItWorks": [
+      "Stress Spike: Use Inner Peace to immediately intercept anxiety and restore safety.",
+      "Meditation: Use Silent Mind to reach deep states of inner stillness in minutes.",
+      "Bedtime: Use Deep Sleep to ensure unbroken, restorative recovery cycles."
+    ],
+    "faq": [
+      {
+        "q": "Is this safe for people with clinical anxiety?",
+        "a": "Our protocols are designed to support relaxation but are not a substitute for medical treatment. Please consult with your healthcare provider if you have concerns."
+      },
+      {
+        "q": "Will I feel groggy?",
+        "a": "No, these protocols align your natural rhythms rather than forcing them, leaving you refreshed."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?bundle=tranquility-suite"
+  },
+  {
+    "id": "performance-stack",
+    "type": "bundle",
+    "title": "The High-Performance Stack",
+    "tag": "Power Stack",
+    "price": "55.00",
+    "old_price": "77.00",
+    "icon": "zap",
+    "image": "img/products/boundless-energy.webp",
+    "short_desc": "Forge an unshakeable mind. Maximum drive, zero doubt, and conscious dream control.",
+    "included_ids": [
+      "boundless-energy",
+      "unshakeable-self-confidence",
+      "lucid-dreaming"
+    ],
+    "long_desc": "The High-Performance Stack is engineered for those who demand more from their biology. This is the 'Limitless' protocol of the HigherSync archive. By combining 40Hz Gamma ignition with 6Hz deep Theta neuroplasticity, we allow you to build elite confidence while maintaining razor-sharp cognitive focus. The addition of Lucid Dreaming awareness ensures that even your sleep becomes a training ground for your conscious expansion. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "benefits": [
+      "High-voltage cognitive focus",
+      "Dissolution of imposter syndrome",
+      "Conscious REM awareness (Lucidity)",
+      "Maximum execution drive"
+    ],
+    "howItWorks": [
+      "Focus: Use Boundless Energy whenever you need a cognitive edge or caffeine-free drive.",
+      "Integration: Use Unshakeable Confidence to anchor your self-image in deep neuroplasticity.",
+      "Dreaming: Use Lucid Dreamer to spark conscious awareness during your REM cycles."
+    ],
+    "faq": [
+      {
+        "q": "Will this make me jittery?",
+        "a": "Unlike stimulants, Gamma entrainment provides clean focus without the physical jitters or crashes."
+      },
+      {
+        "q": "Can I use this for public speaking?",
+        "a": "Yes, Unshakeable Confidence is highly effective when used before high-stakes performances."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?bundle=performance-stack"
+  },
+  {
+    "id": "complete-collection",
+    "type": "bundle",
+    "title": "The HigherSync Complete Collection",
+    "tag": "Master Access",
+    "price": "147.00",
+    "old_price": "359.00",
+    "icon": "vibrate",
+    "image": "img/products/reality-architect.webp",
+    "short_desc": "Full archive access. All 12 Master Protocols and future updates for one investment.",
+    "long_desc": "The Complete Collection is the ultimate key to the HigherSync Archive. You receive every single protocol we have ever engineered\u2014from the deepest Epsilon stillness protocols to the highest Gamma performance ignitions. This is for the dedicated seeker who understands that true transformation requires a multi-dimensional approach. Own the entire library and have the right frequency for every possible state of being. Upon purchase, you will instantly receive access to our high-fidelity .wav audio files alongside proprietary .soultune archives optimized for the SoulTune App.",
+    "included_ids": [
+      "deep-sleep",
+      "third-eye-awakening",
+      "absolute-freedom",
+      "creative-flow",
+      "unshakeable-happiness",
+      "inner-peace",
+      "lucid-dreaming",
+      "become-attractive",
+      "silent-mind",
+      "boundless-energy",
+      "unshakeable-self-confidence",
+      "reality-architect"
+    ],
+    "benefits": [
+      "All 12 Proprietary Protocols included",
+      "Lifetime access to the entire archive",
+      "Over $200 in total savings",
+      "Free updates and future additions",
+      "The most comprehensive neuro-acoustic library on Earth"
+    ],
+    "howItWorks": [
+      "Day 1-21: Follow our suggested 'Nervous System Reset' path.",
+      "Advanced: Mix and match protocols to suit your specific daily objectives.",
+      "Ongoing: Stay tuned into the frequency that matches your desired reality."
+    ],
+    "faq": [
+      {
+        "q": "Do I get new products for free?",
+        "a": "Yes, the Complete Collection includes a lifetime license for all current and future protocols in the 'The Vault' archive."
+      },
+      {
+        "q": "Is this a subscription?",
+        "a": "No. This is a one-time investment for permanent, lifetime access."
+      }
+    ],
+    "checkout_link": "https://highersync.com/checkout?bundle=complete-collection"
+  }
+]

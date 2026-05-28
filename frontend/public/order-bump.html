@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Order Bump Reference - HigherSync</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #07070A;
+      --void-card: #111118;
+      --gold: #D4AF37;
+      --gold-glow: rgba(212,175,55,0.12);
+      --quantum: #5B52F0;
+      --text: #E8E3D9;
+      --text-mid: #9B9588;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--sans);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .note {
+      background: rgba(91,82,240,0.1);
+      border: 1px solid rgba(91,82,240,0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    .note strong {
+      color: #8B84FF;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* Order Bump Component */
+    .order-bump {
+      background: var(--void-card);
+      border: 2px dashed var(--gold);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .bump-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .bump-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .bump-checkbox.checked {
+      background: var(--gold);
+    }
+
+    .bump-checkbox svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--void);
+      stroke-width: 3;
+      opacity: 0;
+    }
+
+    .bump-checkbox.checked svg {
+      opacity: 1;
+    }
+
+    .bump-title-area h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .bump-title-area .tag {
+      display: inline-block;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .bump-body {
+      padding-left: 40px;
+    }
+
+    .bump-body p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .bump-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .bump-feature {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .bump-feature svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--gold);
+    }
+
+    .bump-price {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bump-price .add {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .bump-price .amount {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .bump-price .original {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      text-decoration: line-through;
+    }
+
+    /* ClickBank Config Section */
+    .config-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .config-section h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .config-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .config-item label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .config-item .value {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    @media(max-width: 500px) {
+      .order-bump { padding: 20px 16px; }
+      .bump-body { padding-left: 0; margin-top: 16px; }
+      .bump-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="note">
+      <strong>Developer Reference</strong>
+      This page shows the Order Bump design and copy for ClickBank PitchPlus configuration.
+      The actual Order Bump is rendered by ClickBank on their checkout page.
+    </div>
+
+    <h1>Order Bump Component</h1>
+
+    <!-- Order Bump Preview -->
+    <div class="order-bump">
+      <div class="bump-header">
+        <div class="bump-checkbox checked" onclick="this.classList.toggle('checked')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="bump-title-area">
+          <h2>Yes! Add Boundless Energy</h2>
+          <span class="tag">One-Time Offer</span>
+        </div>
+      </div>
+
+      <div class="bump-body">
+        <p>
+          Supercharge your mornings with our 40Hz Gamma protocol.
+          This frequency is associated with heightened alertness, focus, and cognitive performance.
+          Use it before work, workouts, or any task requiring peak mental energy.
+        </p>
+
+        <div class="bump-features">
+          <div class="bump-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>40Hz Gamma Entrainment</span>
+          </div>
+          <div class="bump-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>15-Minute Protocol</span>
+          </div>
+          <div class="bump-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Instant Download</span>
+          </div>
+        </div>
+
+        <div class="bump-price">
+          <span class="add">Add to order:</span>
+          <span class="amount">$17</span>
+          <span class="original">$37</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ClickBank Configuration Reference -->
+    <div class="config-section">
+      <h2>ClickBank PitchPlus Config</h2>
+
+      <div class="config-item">
+        <label>Product SKU</label>
+        <div class="value">ENERGY</div>
+      </div>
+
+      <div class="config-item">
+        <label>Bump Title</label>
+        <div class="value">Yes! Add Boundless Energy</div>
+      </div>
+
+      <div class="config-item">
+        <label>Bump Price</label>
+        <div class="value">$17.00</div>
+      </div>
+
+      <div class="config-item">
+        <label>Original Price (Strikethrough)</label>
+        <div class="value">$37.00</div>
+      </div>
+
+      <div class="config-item">
+        <label>Bump Description</label>
+        <div class="value">Supercharge your mornings with our 40Hz Gamma protocol. This frequency is associated with heightened alertness, focus, and cognitive performance. Use it before work, workouts, or any task requiring peak mental energy.</div>
+      </div>
+
+      <div class="config-item">
+        <label>Bump Image</label>
+        <div class="value">/images/boundless-energy-bump.jpg</div>
+      </div>
+
+      <div class="config-item">
+        <label>Funnel Position</label>
+        <div class="value">Order Form (Pre-Purchase)</div>
+      </div>
+
+      <div class="config-item">
+        <label>Parent Product</label>
+        <div class="value">HIGHERSELF (The Higher Self Protocol - $27)</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

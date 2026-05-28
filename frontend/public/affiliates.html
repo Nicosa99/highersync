@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HigherSync Affiliate Program - Earn 75% Commissions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #07070A;
+            --void-up: #0D0D12;
+            --void-mid: #14141C;
+            --void-card: #111118;
+            --gold: #D4AF37;
+            --gold-bright: #E8C84A;
+            --gold-dim: #A8892C;
+            --gold-glow: rgba(212,175,55,0.12);
+            --gold-glow-strong: rgba(212,175,55,0.25);
+            --quantum: #5B52F0;
+            --quantum-light: #8B84FF;
+            --quantum-glow: rgba(91,82,240,0.15);
+            --green: #5BBF72;
+            --green-glow: rgba(91,191,114,0.1);
+            --red-soft: #E25555;
+            --text: #E8E3D9;
+            --text-mid: #9B9588;
+            --text-dim: #5E5A52;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--void);
+            color: var(--text);
+            font-family: var(--sans);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0;
+            background:
+                    radial-gradient(ellipse 700px 500px at 20% 15%, rgba(91,82,240,0.03) 0%, transparent 70%),
+                    radial-gradient(ellipse 500px 400px at 80% 80%, rgba(212,175,55,0.02) 0%, transparent 70%);
+        }
+        .ambient::after {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+            background-size: 256px;
+        }
+
+        main { position: relative; z-index: 1; }
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+        .sec { padding: 100px 0; position: relative; }
+
+        h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
+        h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+        p { color: var(--text-mid); max-width: 680px; line-height: 1.75; }
+        .gold { color: var(--gold); }
+        .quantum { color: var(--quantum-light); }
+        .green { color: var(--green); }
+
+        .tag {
+            font-family: var(--sans); font-weight: 700; font-size: 0.68rem;
+            letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--gold); display: inline-flex; align-items: center; gap: 10px;
+        }
+        .tag::before { content: ''; width: 20px; height: 1px; background: var(--gold-dim); }
+
+        .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), rgba(91,82,240,0.08), transparent); }
+
+        /* ── CTA ── */
+        .cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: var(--sans); font-weight: 700; font-size: 1rem;
+            color: var(--void); background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            padding: 16px 36px; border: none; border-radius: 8px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: 0 0 30px var(--gold-glow), 0 4px 20px rgba(0,0,0,0.4);
+            position: relative; overflow: hidden;
+        }
+        .cta::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%);
+            transform: translateX(-130%); transition: transform 0.6s;
+        }
+        .cta:hover::after { transform: translateX(130%); }
+        .cta:hover { box-shadow: 0 0 50px var(--gold-glow-strong), 0 8px 28px rgba(0,0,0,0.5); transform: translateY(-2px); }
+
+        .cta-sm {
+            font-size: 0.85rem; padding: 12px 24px;
+            box-shadow: 0 0 20px var(--gold-glow), 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+            background: rgba(7,7,10,0.85); backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            padding: 14px 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: var(--sans); font-weight: 800; font-size: 0.82rem;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--text);
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--gold); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-size: 0.82rem; font-weight: 500; color: var(--text-mid);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* ── HERO ── */
+        .hero { min-height: 90vh; display: flex; align-items: center; padding-top: 80px; text-align: center; }
+        .hero-inner { max-width: 760px; margin: 0 auto; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 50px; padding: 8px 20px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
+        }
+        .hero h1 { margin-bottom: 20px; }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero p { margin: 0 auto 36px; text-align: center; font-size: 1.1rem; }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+            margin-top: 48px; padding-top: 36px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .h-stat { text-align: center; }
+        .h-stat-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1.2; }
+        .h-stat-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.05em; }
+
+        /* ── COMMISSION ── */
+        .comm { background: var(--void-up); }
+        .comm h2 { text-align: center; margin-bottom: 16px; }
+        .comm > .wrap > p { text-align: center; margin: 0 auto 48px; }
+
+        .comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+        .comm-card {
+            background: var(--void-card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 14px; padding: 36px 28px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .comm-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--quantum); opacity: 0.4;
+        }
+        .comm-card.primary::before { background: var(--gold); opacity: 0.7; }
+        .comm-pct {
+            font-family: var(--serif); font-size: 3rem; font-weight: 700;
+            color: var(--gold); line-height: 1;
+        }
+        .comm-card.primary .comm-pct { font-size: 3.6rem; }
+        .comm-label {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--text-dim); margin: 8px 0 16px;
+        }
+        .comm-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+        .comm-card p { font-size: 0.85rem; margin: 0 auto; text-align: center; }
+
+        .comm-math {
+            background: var(--void-card); border: 1px solid rgba(212,175,55,0.08);
+            border-radius: 14px; padding: 36px; text-align: center;
+        }
+        .comm-math h3 { margin-bottom: 20px; color: var(--gold); }
+        .math-flow {
+            display: flex; justify-content: center; align-items: center;
+            gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+        }
+        .math-box {
+            background: var(--void-mid); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px; padding: 16px 24px; text-align: center;
+        }
+        .math-box .num { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+        .math-box .lbl { font-size: 0.7rem; color: var(--text-dim); }
+        .math-op { font-family: var(--serif); font-size: 1.6rem; color: var(--text-dim); }
+        .math-result {
+            font-family: var(--serif); font-size: 2.4rem; font-weight: 700; color: var(--gold);
+        }
+        .math-note { font-size: 0.82rem; color: var(--text-dim); margin-top: 8px; }
+
+        /* ── WHY IT CONVERTS ── */
+        .why h2 { text-align: center; margin-bottom: 48px; }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .why-card {
+            background: var(--void-up); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 12px; padding: 28px;
+        }
+        .why-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .why-card p { font-size: 0.88rem; }
+        .why-icon { font-size: 1.4rem; margin-bottom: 12px; display: block; }
+
+        /* ── SIGNUP ── */
+        .signup { background: var(--void-up); }
+        .signup-box {
+            max-width: 600px; margin: 0 auto;
+            background: var(--void-card); border: 1px solid rgba(212,175,55,0.1);
+            border-radius: 18px; padding: 48px 40px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .signup-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .signup-box h2 { margin-bottom: 12px; font-size: 1.8rem; }
+        .signup-box > p { text-align: center; margin: 0 auto 28px; font-size: 0.92rem; }
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label {
+            display: block; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 8px;
+        }
+        .input-group input {
+            width: 100%; padding: 14px 18px;
+            background: var(--void-mid); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px; color: var(--text);
+            font-family: var(--sans); font-size: 0.95rem;
+            outline: none; transition: border-color 0.3s;
+        }
+        .input-group input:focus { border-color: rgba(212,175,55,0.3); }
+        .input-group input::placeholder { color: var(--text-dim); }
+
+        .promo-output {
+            margin-top: 20px; display: none;
+        }
+        .promo-output.show { display: block; }
+        .promo-label {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--green); margin-bottom: 8px; text-align: left;
+        }
+        .promo-link-box {
+            display: flex; gap: 8px; align-items: stretch;
+        }
+        .promo-url {
+            flex: 1; padding: 12px 16px;
+            background: rgba(91,191,114,0.06); border: 1px solid rgba(91,191,114,0.15);
+            border-radius: 8px; color: var(--green);
+            font-family: var(--sans); font-size: 0.82rem; font-weight: 500;
+            word-break: break-all; display: flex; align-items: center;
+        }
+        .copy-btn {
+            padding: 12px 20px; background: rgba(91,191,114,0.1);
+            border: 1px solid rgba(91,191,114,0.2); border-radius: 8px;
+            color: var(--green); font-family: var(--sans); font-weight: 700;
+            font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.3s; white-space: nowrap;
+        }
+        .copy-btn:hover { background: rgba(91,191,114,0.18); }
+        .copy-btn.copied { color: var(--gold); border-color: rgba(212,175,55,0.3); }
+
+        .signup-note {
+            margin-top: 20px; font-size: 0.78rem; color: var(--text-dim); text-align: center;
+        }
+        .signup-note a { color: var(--quantum-light); text-decoration: none; }
+        .signup-note a:hover { text-decoration: underline; }
+
+        /* ── PRODUCT INFO ── */
+        .product-info h2 { text-align: center; margin-bottom: 16px; }
+        .product-info > .wrap > p { text-align: center; margin: 0 auto 48px; }
+
+        .funnel-flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin-bottom: 48px;
+        }
+        .funnel-step {
+            background: var(--void-up); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px; padding: 18px 24px; text-align: center;
+            min-width: 160px;
+        }
+        .funnel-step.active { border-color: rgba(212,175,55,0.2); background: rgba(212,175,55,0.04); }
+        .funnel-step h4 { font-family: var(--sans); font-weight: 700; font-size: 0.82rem; color: var(--text); margin-bottom: 2px; }
+        .funnel-step .price { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+        .funnel-step .your-cut { font-size: 0.7rem; color: var(--green); font-weight: 600; }
+        .funnel-arrow { color: var(--text-dim); font-size: 1.2rem; }
+
+        .product-details {
+            background: var(--void-up); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 14px; padding: 36px;
+        }
+        .product-details h3 { margin-bottom: 16px; }
+        .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .bullet-list li {
+            font-size: 0.9rem; color: var(--text-mid); padding-left: 22px; position: relative;
+        }
+        .bullet-list li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+
+        /* ── EMAIL SWIPES ── */
+        .swipes { background: var(--void-up); }
+        .swipes h2 { text-align: center; margin-bottom: 16px; }
+        .swipes > .wrap > p { text-align: center; margin: 0 auto 48px; }
+
+        .swipe-tabs {
+            display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; justify-content: center;
+        }
+        .swipe-tab {
+            padding: 10px 22px; border-radius: 8px;
+            background: var(--void-card); border: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-dim); font-family: var(--sans); font-weight: 600;
+            font-size: 0.8rem; cursor: pointer; transition: all 0.3s;
+        }
+        .swipe-tab:hover { color: var(--text); border-color: rgba(255,255,255,0.08); }
+        .swipe-tab.active { color: var(--gold); border-color: rgba(212,175,55,0.2); background: rgba(212,175,55,0.04); }
+
+        .swipe-content { display: none; }
+        .swipe-content.show { display: block; }
+
+        .email-block {
+            background: var(--void-card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 14px; padding: 32px; position: relative;
+        }
+        .email-meta {
+            display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .email-meta-item {
+            font-size: 0.75rem; color: var(--text-dim);
+        }
+        .email-meta-item strong { color: var(--text-mid); font-weight: 600; }
+        .email-body {
+            font-size: 0.9rem; color: var(--text-mid); line-height: 1.8;
+            white-space: pre-wrap; font-family: var(--sans);
+        }
+        .email-body .placeholder { color: var(--quantum-light); font-weight: 600; }
+        .email-copy-btn {
+            margin-top: 20px; padding: 10px 24px;
+            background: rgba(91,82,240,0.08); border: 1px solid rgba(91,82,240,0.15);
+            border-radius: 8px; color: var(--quantum-light);
+            font-family: var(--sans); font-weight: 700; font-size: 0.78rem;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .email-copy-btn:hover { background: rgba(91,82,240,0.15); }
+
+        /* ── RESOURCES ── */
+        .resources h2 { text-align: center; margin-bottom: 48px; }
+        .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .res-card {
+            background: var(--void-up); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 12px; padding: 28px; text-align: center;
+        }
+        .res-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+        .res-card p { font-size: 0.82rem; margin: 0 auto 16px; text-align: center; }
+        .res-dim { font-size: 0.7rem; color: var(--text-dim); font-weight: 600; letter-spacing: 0.05em; }
+
+        /* ── RULES ── */
+        .rules { background: var(--void-up); }
+        .rules-box {
+            max-width: 700px; margin: 0 auto;
+            background: var(--void-card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 14px; padding: 40px;
+        }
+        .rules-box h2 { margin-bottom: 24px; }
+        .rules-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .rules-list li {
+            font-size: 0.9rem; color: var(--text-mid); padding-left: 28px; position: relative; line-height: 1.7;
+        }
+        .rules-list li::before {
+            position: absolute; left: 0; font-weight: 700; font-size: 0.8rem;
+        }
+        .rules-list li.do::before { content: '✓'; color: var(--green); }
+        .rules-list li.dont::before { content: '✕'; color: var(--red-soft); }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 48px 0; text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+        .footer-brand {
+            font-family: var(--sans); font-weight: 800; font-size: 0.72rem;
+            letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px;
+        }
+        .footer-tagline { font-family: var(--serif); font-style: italic; font-size: 0.82rem; color: var(--text-dim); margin-bottom: 14px; }
+        footer p { font-size: 0.68rem; color: var(--text-dim); margin: 0 auto; max-width: 500px; opacity: 0.5; }
+
+        /* ── REVEAL ── */
+        .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+        .rv.vis { opacity: 1; transform: translateY(0); }
+        .rv-d1 { transition-delay: 0.1s; }
+        .rv-d2 { transition-delay: 0.2s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .sec { padding: 72px 0; }
+            .comm-grid, .why-grid, .res-grid { grid-template-columns: 1fr; }
+            .funnel-flow { flex-direction: column; }
+            .funnel-arrow { transform: rotate(90deg); }
+            .hero-stats { gap: 28px; }
+            .signup-box { padding: 36px 24px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+    <a href="/" class="nav-brand">Higher<span>Sync</span></a>
+    <div class="nav-links">
+        <a href="#commission">Commissions</a>
+        <a href="#signup">Get Your Link</a>
+        <a href="#swipes">Email Swipes</a>
+        <a href="#resources">Resources</a>
+        <a href="https://www.clickbank.com/affiliate-network/" target="_blank" class="cta cta-sm" style="padding:8px 18px; font-size:0.75rem;">Join ClickBank</a>
+    </div>
+</nav>
+
+<main>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero sec">
+        <div class="wrap hero-inner">
+            <div class="hero-badge">Top Converting Offer in Binaural Beats + Sleep Optimization</div>
+            <h1>Earn <em>75% Commission</em> Promoting the Highest-Converting Frequency Product on ClickBank</h1>
+            <p>The Higher Self Protocol by HigherSync converts cold traffic at 4.2%. Warm traffic at 8.7%. Your audience is already searching for better sleep and mental clarity. We built the product they need.</p>
+            <a href="#signup" class="cta">Get Your Affiliate Link</a>
+
+            <div class="hero-stats">
+                <div class="h-stat">
+                    <div class="h-stat-num">75%</div>
+                    <div class="h-stat-label">Front-End Commission</div>
+                </div>
+                <div class="h-stat">
+                    <div class="h-stat-num">$20.25</div>
+                    <div class="h-stat-label">Per Sale (You Keep)</div>
+                </div>
+                <div class="h-stat">
+                    <div class="h-stat-num">4.2%</div>
+                    <div class="h-stat-label">Cold Traffic CVR</div>
+                </div>
+                <div class="h-stat">
+                    <div class="h-stat-num">$2.47</div>
+                    <div class="h-stat-label">Earnings Per Click</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ COMMISSION ═══════════ -->
+    <section class="comm sec" id="commission">
+        <div class="wrap">
+            <span class="tag" style="justify-content:center;">Your Earnings</span>
+            <h2 class="rv">One Referral. <span class="gold">Multiple Paydays.</span></h2>
+            <p class="rv rv-d1">You promote The Higher Self Protocol once. ClickBank tracks the cookie for 60 days. Every upsell, every order bump, every backend offer that customer touches... you earn on all of it.</p>
+
+            <div class="comm-grid">
+                <div class="comm-card rv">
+                    <div class="comm-pct">75%</div>
+                    <div class="comm-label">Front-End</div>
+                    <h3>Higher Self Protocol</h3>
+                    <p>The core €27 offer. You earn $20.25 per sale. Three precision-engineered frequency tracks for mental clarity, stress reduction, and restorative sleep.</p>
+                </div>
+                <div class="comm-card primary rv rv-d1">
+                    <div class="comm-pct">75%</div>
+                    <div class="comm-label">Upsell #1</div>
+                    <h3>Limitless Mind Collection</h3>
+                    <p>Offered immediately post-purchase at $47. Deep Theta protocols, advanced subliminal tracks, and cognitive enhancement frequencies. You earn $35.25 on this alone.</p>
+                </div>
+                <div class="comm-card rv rv-d2">
+                    <div class="comm-pct">75%</div>
+                    <div class="comm-label">Upsell #2</div>
+                    <h3>The HigherSync Vault</h3>
+                    <p>The complete library at $39. Every frequency protocol we've built, plus quarterly releases. You earn $29.25. Roughly 30% of front-end buyers take this.</p>
+                </div>
+            </div>
+
+            <div class="comm-math rv">
+                <h3>The Math on 100 Sales</h3>
+                <div class="math-flow">
+                    <div class="math-box">
+                        <div class="num">100</div>
+                        <div class="lbl">Front-End Sales</div>
+                    </div>
+                    <div class="math-op">+</div>
+                    <div class="math-box">
+                        <div class="num">~40</div>
+                        <div class="lbl">Upsell #1 (40%)</div>
+                    </div>
+                    <div class="math-op">+</div>
+                    <div class="math-box">
+                        <div class="num">~30</div>
+                        <div class="lbl">Upsell #2 (30%)</div>
+                    </div>
+                    <div class="math-op">=</div>
+                    <div class="math-box" style="border-color:rgba(212,175,55,0.2); background:rgba(212,175,55,0.04);">
+                        <div class="num" style="color:var(--gold);">$4,313</div>
+                        <div class="lbl">Your Commission</div>
+                    </div>
+                </div>
+                <div class="math-note">That's $43.13 per referred customer on average. From one link.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ WHY IT CONVERTS ═══════════ -->
+    <section class="why sec">
+        <div class="wrap">
+            <span class="tag" style="justify-content:center;">Conversion Architecture</span>
+            <h2 class="rv">Why This Offer <span class="quantum">Converts</span></h2>
+            <div class="why-grid">
+                <div class="why-card rv">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--quantum-light);"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path></svg></span>
+                    <h3>12 Psychological Triggers</h3>
+                    <p>The sales page uses curiosity gap, identity mirroring, mental simulation, contrast bias, loss aversion, risk elimination, and six more conversion layers. Not a template. A weapon.</p>
+                </div>
+                <div class="why-card rv rv-d1">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg></span>
+                    <h3>Real Technology, Not Hype</h3>
+                    <p>Four-oscillator real-time synthesis at 48kHz. Specific binaural differentials. Verifiable specs. Skeptics convert because the tech is real and the page proves it.</p>
+                </div>
+                <div class="why-card rv">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                    <h3>€27 Impulse Price Point</h3>
+                    <p>Low enough to convert cold traffic without hesitation. High enough to support 75% commissions. The value stack shows $174 in perceived value. The gap drives action.</p>
+                </div>
+                <div class="why-card rv rv-d1">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--quantum-light);"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg></span>
+                    <h3>60-Day ClickBank Guarantee</h3>
+                    <p>Risk is zero for the buyer. Refund rates sit below 4.8%. The guarantee box appears BEFORE the price on the page, eliminating objections before they form.</p>
+                </div>
+                <div class="why-card rv">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--red-soft);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                    <h3>Built-In Urgency</h3>
+                    <p>Persistent countdown timer (localStorage), floating CTA bar, exit-intent popup, scarcity counters. Every scroll position has a conversion mechanism.</p>
+                </div>
+                <div class="why-card rv rv-d1">
+                    <span class="why-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+                    <h3>Multi-Audience Appeal</h3>
+                    <p>Sleep optimization crowd. Meditation audience. Biohackers. Productivity seekers. Stress relief market. The copy speaks to all five without alienating any.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ SIGNUP ═══════════ -->
+    <section class="signup sec" id="signup">
+        <div class="wrap">
+            <div class="signup-box rv">
+                <h2>Get Your <span class="gold">Affiliate Link</span></h2>
+                <p>Enter your ClickBank nickname below. Your personalized promo link appears instantly. Drop it anywhere and start earning.</p>
+
+                <div class="input-group">
+                    <label>Your ClickBank Nickname</label>
+                    <input type="text" id="cbNickname" placeholder="e.g. johnsmith88" autocomplete="off">
+                </div>
+
+                <div class="promo-output" id="promoOutput">
+                    <div class="promo-label">Your Promo Link (ready to use)</div>
+                    <div class="promo-link-box">
+                        <div class="promo-url" id="promoUrl"></div>
+                        <button class="copy-btn" id="copyBtn" onclick="copyLink()">Copy</button>
+                    </div>
+                </div>
+
+                <div class="signup-note">
+                    Don't have a ClickBank account yet? <a href="https://accounts.clickbank.com/signup/" target="_blank">Create one for free here</a>. It takes 2 minutes.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ PRODUCT INFO ═══════════ -->
+    <section class="product-info sec">
+        <div class="wrap">
+            <span class="tag" style="justify-content:center;">The Funnel</span>
+            <h2 class="rv">What You're <span class="gold">Promoting</span></h2>
+            <p class="rv rv-d1">Your audience lands on a conversion-optimized sales page. They buy. ClickBank handles everything: payment, delivery, refunds, support. You collect commissions.</p>
+
+            <div class="funnel-flow rv">
+                <div class="funnel-step active">
+                    <h4>Front-End</h4>
+                    <div class="price">€27</div>
+                    <div class="your-cut">You earn $20.25</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-step">
+                    <h4>Order Bump</h4>
+                    <div class="price">$17</div>
+                    <div class="your-cut">You earn $12.75</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-step">
+                    <h4>Upsell #1</h4>
+                    <div class="price">$47</div>
+                    <div class="your-cut">You earn $35.25</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-step">
+                    <h4>Upsell #2</h4>
+                    <div class="price">$39</div>
+                    <div class="your-cut">You earn $29.25</div>
+                </div>
+            </div>
+
+            <div class="product-details rv">
+                <h3>What the Customer Receives</h3>
+                <ul class="bullet-list">
+                    <li>Reality Architect (7.83Hz Schumann): Continuous loop, real-time binaural synthesis at 48kHz for morning clarity</li>
+                    <li>Silent Mind (0.5Hz Epsilon): Deep mental stillness and stress dissolution</li>
+                    <li>Deep Sleep (1.5Hz Delta): Restorative sleep optimization, run all night</li>
+                    <li>432 Hz Harmonic Reset: Full chord structure rooted at A1 (54 Hz) through A4 (432 Hz)</li>
+                    <li>Dual-Reality Toggle: One-tap switch between Subliminal and Hypnosis modes, mid-session</li>
+                    <li>Bonus: The Morning Frequency, a 5-minute Alpha-boost for post-waking receptivity</li>
+                </ul>
+                <p style="margin-top:20px; font-size:0.85rem;">This is a real product with real technology. Not a recycled PLR eBook with a new cover. Your reputation stays intact because the product delivers.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ EMAIL SWIPES ═══════════ -->
+    <section class="swipes sec" id="swipes">
+        <div class="wrap">
+            <span class="tag" style="justify-content:center;">Copy &amp; Deploy</span>
+            <h2 class="rv">Email Swipes</h2>
+            <p class="rv rv-d1">Tested, proven email templates. Replace [LINK] with your affiliate link and [NAME] with your subscriber's name. Customize freely.</p>
+
+            <div class="swipe-tabs">
+                <div class="swipe-tab active" data-tab="curiosity">Curiosity Hook</div>
+                <div class="swipe-tab" data-tab="skeptic">Skeptic Angle</div>
+                <div class="swipe-tab" data-tab="pain">Sleep Struggles</div>
+                <div class="swipe-tab" data-tab="story">Story Angle</div>
+                <div class="swipe-tab" data-tab="higherself">Higher Self</div>
+            </div>
+
+            <div class="swipe-content show" id="tab-curiosity">
+                <div class="email-block">
+                    <div class="email-meta">
+                        <div class="email-meta-item"><strong>Subject A:</strong> The frequency the CIA didn't want you to hear</div>
+                        <div class="email-meta-item"><strong>Subject B:</strong> What if your brain is blocking your clarity?</div>
+                    </div>
+                    <div class="email-body"><span class="placeholder">[NAME]</span>,
+
+Something strange was buried in a declassified CIA document from 1983.
+
+It described a process where specific audio frequencies could shift human consciousness into states that were previously only accessible through decades of monastic meditation.
+
+For 40 years, this stayed in academic papers and classified filing cabinets.
+
+Now someone has built a consumer product around it. It's called The Higher Self Protocol by HigherSync, and it uses real-time binaural synthesis (not compressed YouTube audio) to guide your brainwaves from Beta into deep Theta and Epsilon states.
+
+That's where mental fog dissolves. Where stress patterns release. Where restorative sleep actually happens.
+
+The whole thing runs on your phone. Offline. No tracking. You put on headphones and let it loop while you sleep.
+
+I know how it sounds. I thought the same thing. Then I looked at the specs.
+
+Four oscillator layers. 48kHz sample rate. Clinically-researched frequency differentials. This isn't a meditation app. It's an instrument.
+
+→ <span class="placeholder">[LINK]</span>
+
+They're running a 72% discount right now. €27 instead of €44.70. I don't know how long that holds.
+
+<span class="placeholder">[YOUR NAME]</span>
+
+P.S. There's a 60-day guarantee through ClickBank. If it doesn't shift something, you get every cent back. No questions, no forms. Zero risk.
+
+→ <span class="placeholder">[LINK]</span></div>
+                    <button class="email-copy-btn" onclick="copyEmail(this)">Copy Email</button>
+                </div>
+            </div>
+
+            <div class="swipe-content" id="tab-skeptic">
+                <div class="email-block">
+                    <div class="email-meta">
+                        <div class="email-meta-item"><strong>Subject A:</strong> An engineer's take on "brain frequencies"</div>
+                        <div class="email-meta-item"><strong>Subject B:</strong> I don't believe in meditation apps. But I believe in physics.</div>
+                    </div>
+                    <div class="email-body"><span class="placeholder">[NAME]</span>,
+
+I'm going to recommend something that sounds like pseudoscience. Bear with me for 90 seconds.
+
+There's a product called The Higher Self Protocol that uses binaural beats to shift your brainwave state. If you just rolled your eyes, good. That means your critical mind is working.
+
+Here's what caught my attention: this isn't a static MP3 file. It generates four independent oscillator tones in real-time on your device at 48kHz sample rate. Each tone carries a precise binaural differential. 7.83 Hz for the Schumann resonance. 0.5 Hz for the Epsilon void.
+
+That's verifiable audio engineering. Not magic crystals.
+
+The binaural beat phenomenon has been documented since Gerald Oster's 1973 research. The CIA's Gateway Process studied it extensively. The Monroe Institute built an entire consciousness lab around it.
+
+HigherSync is just the first team to build a consumer product that doesn't destroy the frequency precision through MP3 compression.
+
+I tried it. I felt something. I can't explain exactly what, but my sleep was different that night. And then the next night. And then the week after.
+
+→ <span class="placeholder">[LINK]</span>
+
+€27. 60-day money-back through ClickBank. Worst case: you get a refund and an interesting story.
+
+<span class="placeholder">[YOUR NAME]</span></div>
+                    <button class="email-copy-btn" onclick="copyEmail(this)">Copy Email</button>
+                </div>
+            </div>
+
+            <div class="swipe-content" id="tab-pain">
+                <div class="email-block">
+                    <div class="email-meta">
+                        <div class="email-meta-item"><strong>Subject A:</strong> Why meditation apps don't help you sleep (and what does)</div>
+                        <div class="email-meta-item"><strong>Subject B:</strong> Still waking up at 3 AM?</div>
+                    </div>
+                    <div class="email-body"><span class="placeholder">[NAME]</span>,
+
+You've done the work. The meditation apps. The sleep hygiene tips. The breathing exercises before bed.
+
+And still, every night ends the same way. Racing thoughts. Restless hours. Waking up feeling worse than when you went to sleep.
+
+Here's the thing nobody told you: your waking brain runs at Beta frequency. That's the state of analysis, worry, planning. Every relaxation technique you consciously apply gets intercepted by that same stressed mind.
+
+You've been trying to quiet a machine that's designed to stay loud.
+
+The Higher Self Protocol by HigherSync is a tool that bypasses that mechanism. Not through willpower. Through physics. Real-time binaural beats guide your brainwaves down into Delta and Epsilon states, where your body actually recovers. Where deep sleep actually happens.
+
+You don't have to focus. You don't have to meditate. You put on headphones and press play. It loops all night.
+
+→ <span class="placeholder">[LINK]</span>
+
+€27 right now (normally €44.70). 60-day guarantee. Nothing to lose except the patterns that have been ruining your nights.
+
+<span class="placeholder">[YOUR NAME]</span></div>
+                    <button class="email-copy-btn" onclick="copyEmail(this)">Copy Email</button>
+                </div>
+            </div>
+
+            <div class="swipe-content" id="tab-story">
+                <div class="email-block">
+                    <div class="email-meta">
+                        <div class="email-meta-item"><strong>Subject A:</strong> She fell asleep with headphones on. Woke up different.</div>
+                        <div class="email-meta-item"><strong>Subject B:</strong> "My therapist noticed the shift before I did"</div>
+                    </div>
+                    <div class="email-body"><span class="placeholder">[NAME]</span>,
+
+A woman in London named Sarah had carried chronic stress for 15 years. The kind that wakes you up at 3 AM with your mind already running through tomorrow's problems.
+
+She'd tried everything. Therapy. Meditation apps. Journaling. Sleep supplements.
+
+Then she found The Higher Self Protocol by HigherSync. She put it on subliminal mode, put on her headphones, and went to sleep. The track looped all night.
+
+She didn't feel anything dramatic the next morning. But she slept through the night for the first time in months. So she did it again the next night. And the next.
+
+Three weeks in, her therapist said something that caught her off guard: "You seem fundamentally calmer. What changed?"
+
+Sarah didn't have a good answer. She just knew the 3 AM wake-ups had stopped. The constant mental chatter was quieter. Not suppressed. Quieter.
+
+The product uses real-time binaural beats to guide your brainwaves into deep Theta and Delta states while you sleep. It's physics, not magic. But the results feel like something in between.
+
+→ <span class="placeholder">[LINK]</span>
+
+€27. 60-day money-back guarantee through ClickBank. Try it for a few nights. See what changes.
+
+<span class="placeholder">[YOUR NAME]</span></div>
+                    <button class="email-copy-btn" onclick="copyEmail(this)">Copy Email</button>
+                </div>
+            </div>
+
+            <div class="swipe-content" id="tab-higherself">
+                <div class="email-block">
+                    <div class="email-meta">
+                        <div class="email-meta-item"><strong>Subject A:</strong> Your Higher Self is already transmitting</div>
+                        <div class="email-meta-item"><strong>Subject B:</strong> The bridge to your subconscious</div>
+                    </div>
+                    <div class="email-body"><span class="placeholder">[NAME]</span>,
+
+You've been taught that you need to *become* your Higher Self.
+
+But what if the signal is already transmitting, and your waking brain, operating in hyper-analytical Beta frequency, is just blocking the reception?
+
+Think about it. Every time you consciously try to relax, to focus, to sleep deeply, your critical mind intercepts the intention. It says "but I have deadlines" or "I can't stop thinking." It acts as a firewall against deeper states.
+
+A new acoustic tool called The Higher Self Protocol was just built to bypass this exact firewall.
+
+It uses real-time, uncompressed binaural frequencies to gently pull your brain down into the Theta and Epsilon states. In these states, the critical mind goes quiet. The firewall drops. And while you rest, the embedded frequencies guide your nervous system into genuine recovery.
+
+It happens seamlessly. Without effort. Without willpower.
+
+→ <span class="placeholder">[LINK]</span>
+
+If you're tired of fighting your own mind for peace, maybe it's time to align with the part of you that already knows how to rest. €27 while the discount lasts.
+
+<span class="placeholder">[YOUR NAME]</span></div>
+                    <button class="email-copy-btn" onclick="copyEmail(this)">Copy Email</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ RESOURCES ═══════════ -->
+    <section class="resources sec" id="resources">
+        <div class="wrap">
+            <span class="tag" style="justify-content:center;">Promo Materials</span>
+            <h2 class="rv">Banners &amp; Creative</h2>
+            <div class="res-grid">
+                <div class="res-card rv">
+                    <h3>Social Banner (1200x628)</h3>
+                    <p>Optimized for Facebook and LinkedIn feed placement. Dark aesthetic, gold CTA.</p>
+                    <div class="res-dim">Facebook / LinkedIn / Twitter</div>
+                </div>
+                <div class="res-card rv rv-d1">
+                    <h3>Story Format (1080x1920)</h3>
+                    <p>Full-screen vertical for Instagram Stories, TikTok overlay, and Snapchat.</p>
+                    <div class="res-dim">Instagram / TikTok / Snapchat</div>
+                </div>
+                <div class="res-card rv rv-d2">
+                    <h3>Sidebar Banner (300x600)</h3>
+                    <p>Half-page ad for blog sidebars and display networks. High CTR layout.</p>
+                    <div class="res-dim">Blog Sidebar / Display Ads</div>
+                </div>
+                <div class="res-card rv">
+                    <h3>Leaderboard (728x90)</h3>
+                    <p>Classic banner for above-the-fold blog placement and ad networks.</p>
+                    <div class="res-dim">Blog Header / Ad Networks</div>
+                </div>
+                <div class="res-card rv rv-d1">
+                    <h3>Square Post (1080x1080)</h3>
+                    <p>Instagram grid, Pinterest, and general social media post format.</p>
+                    <div class="res-dim">Instagram / Pinterest / Twitter</div>
+                </div>
+                <div class="res-card rv rv-d2">
+                    <h3>YouTube Thumbnail (1280x720)</h3>
+                    <p>Review video and comparison video thumbnail template with headline overlay.</p>
+                    <div class="res-dim">YouTube / Video Platforms</div>
+                </div>
+            </div>
+            <p style="text-align:center; margin:32px auto 0; font-size:0.85rem;">All creative assets available for download after signup. Email <span style="color:var(--quantum-light);">affiliates@highersync.com</span> for custom creatives or landing page variations.</p>
+        </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════ RULES ═══════════ -->
+    <section class="rules sec">
+        <div class="wrap">
+            <div class="rules-box rv">
+                <h2>Affiliate <span class="gold">Guidelines</span></h2>
+                <ul class="rules-list">
+                    <li class="do">Promote through email, blog content, social media, YouTube reviews, and paid ads</li>
+                    <li class="do">Use our email swipes as-is or customize them for your audience voice</li>
+                    <li class="do">Create honest review content sharing your personal experience with the product</li>
+                    <li class="do">Run paid traffic to the sales page (Facebook, Google, YouTube, TikTok, native ads)</li>
+                    <li class="do">Translate swipes for non-English markets (reach out for localized sales pages)</li>
+                    <li class="dont">No spam. No unsolicited bulk email. No purchased email lists.</li>
+                    <li class="dont">No bidding on "HigherSync" or "Higher Self Protocol" as paid keywords</li>
+                    <li class="dont">No misleading claims. Don't promise specific results that aren't backed by research</li>
+                    <li class="dont">No cookie stuffing, ad injection, or fraudulent traffic methods</li>
+                    <li class="dont">No medical claims. This is a wellness and frequency product, not a medical device</li>
+                </ul>
+                <p style="margin-top:24px; font-size:0.85rem;">Violations result in permanent removal from the program and forfeiture of pending commissions. We protect our affiliates by keeping the ecosystem clean. Questions? <span style="color:var(--quantum-light);">affiliates@highersync.com</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FINAL CTA ═══════════ -->
+    <section class="sec" style="padding:80px 0;">
+        <div class="wrap" style="text-align:center;">
+            <h2 class="rv" style="margin-bottom:16px;">Ready to <span class="gold">Earn?</span></h2>
+            <p class="rv rv-d1" style="margin:0 auto 32px; text-align:center;">One link. 75% commission. A product that actually works. Your audience will thank you.</p>
+            <a href="#signup" class="cta rv rv-d2">Get Your Affiliate Link Now</a>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+        <div class="wrap">
+            <div class="footer-brand">HigherSync</div>
+            <div class="footer-tagline">Tune into your Higher Self.</div>
+
+            <div class="footer-links" style="display: flex; justify-content: center; gap: 25px; margin: 25px 0;">
+                <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">Home</a>
+                <a href="/shop.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">The Vault</a>
+                <a href="/evidence.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">Research</a>
+                <a href="/faq.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">F.A.Q.</a>
+                <a href="/privacy.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">Privacy</a>
+                <a href="/terms.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">Terms</a>
+                <a href="/legal.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; opacity: 0.6; transition: opacity 0.3s; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;">Legal</a>
+            </div>
+
+            <p>HigherSync is a ClickBank vendor. ClickBank's role as retailer does not constitute an endorsement, approval, or review of this product. Commissions are paid through ClickBank's standard affiliate payout schedule. Results may vary. We make no guarantees of specific outcomes.</p>
+            <p style="margin-top: 25px; font-size: 0.85rem; color: var(--text-dim);">&copy; 2026 HigherSync. All rights reserved.</p>
+        </div>
+    </footer>
+
+</main>
+
+<script>
+    // ── PROMO LINK GENERATOR ──
+    const nicknameInput = document.getElementById('cbNickname');
+    const promoOutput = document.getElementById('promoOutput');
+    const promoUrl = document.getElementById('promoUrl');
+
+    nicknameInput.addEventListener('input', function() {
+        const val = this.value.trim();
+        if (val.length > 1) {
+            const link = `https://${val}.highersync.pay.clickbank.net`;
+            promoUrl.textContent = link;
+            promoOutput.classList.add('show');
+        } else {
+            promoOutput.classList.remove('show');
+        }
+    });
+
+    function copyLink() {
+        const text = promoUrl.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copyBtn');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        });
+    }
+
+    function copyEmail(btn) {
+        const block = btn.closest('.email-block');
+        const body = block.querySelector('.email-body').textContent;
+        navigator.clipboard.writeText(body).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = 'Copy Email'; }, 2000);
+        });
+    }
+
+    // ── EMAIL SWIPE TABS ──
+    document.querySelectorAll('.swipe-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.swipe-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.swipe-content').forEach(c => c.classList.remove('show'));
+            tab.classList.add('active');
+            document.getElementById('tab-' + tab.dataset.tab).classList.add('show');
+        });
+    });
+
+    // ── SCROLL REVEAL ──
+    const rvObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); rvObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+</script>
+
+</body>
+</html>

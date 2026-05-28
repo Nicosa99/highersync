@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The HigherSync Research Vault. Peer-reviewed evidence on binaural beats, subliminal priming, and neuro-acoustic technology.">
+  <title>Research Vault - HigherSync Evidence Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #07070A;
+      --void-up: #0D0D12;
+      --void-mid: #14141C;
+      --void-card: #111118;
+      --gold: #D4AF37;
+      --gold-bright: #E8C84A;
+      --gold-dim: #A8892C;
+      --gold-glow: rgba(212,175,55,0.12);
+      --gold-glow-strong: rgba(212,175,55,0.25);
+      --quantum: #5B52F0;
+      --quantum-light: #8B84FF;
+      --quantum-glow: rgba(91,82,240,0.15);
+      --red-soft: #E25555;
+      --green-soft: #5BBF72;
+      --text: #E8E3D9;
+      --text-mid: #9B9588;
+      --text-dim: #5E5A52;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(7, 7, 10, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+      padding: 15px 0;
+    }
+    .top-nav .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .top-nav-logo {
+      font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a {
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      color: var(--text-mid); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      padding: 8px 18px; border: 1px solid var(--gold-dim); border-radius: 4px;
+      color: var(--gold) !important; font-size: 0.8rem;
+    }
+    .nav-cta:hover { background: var(--gold-glow); }
+
+    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1100; padding: 10px; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--text); transition: 0.3s; }
+
+    @media (max-width: 850px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+        background: rgba(7, 7, 10, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column; justify-content: center; align-items: center; gap: 35px;
+        transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 1050; height: 100vh;
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 1.4rem; font-weight: 700; }
+      .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .menu-toggle.open span:nth-child(2) { opacity: 0; }
+      .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+
+    /* ── AMBIENT ── */
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(91,82,240,0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 500px at 85% 75%, rgba(212,175,55,0.02) 0%, transparent 70%);
+    }
+
+    main { position: relative; z-index: 1; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+    .wrap-narrow { max-width: 880px; }
+    .sec { padding: 100px 0; position: relative; }
+
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); letter-spacing: -0.01em; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+    h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); }
+    p { color: var(--text-mid); max-width: 680px; line-height: 1.75; }
+
+    .gold { color: var(--gold); }
+    .quantum { color: var(--quantum-light); }
+
+    .tag {
+      font-family: var(--sans); font-weight: 700; font-size: 0.68rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); display: inline-flex; align-items: center; gap: 10px;
+    }
+    .tag::before { content: ''; width: 20px; height: 1px; background: var(--gold-dim); }
+
+    .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), rgba(91,82,240,0.08), transparent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 70vh; display: flex; align-items: center;
+      padding-top: 140px; padding-bottom: 80px;
+      text-align: center; position: relative;
+    }
+    .hero-inner { max-width: 800px; margin: 0 auto; }
+    .hero h1 { margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1.15rem; max-width: 620px; margin: 0 auto 32px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.01);
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--serif); font-size: 2.8rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-dim); margin-top: 8px;
+    }
+
+    /* ── CATEGORY TABS ── */
+    .cat-nav {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      padding: 40px 0;
+    }
+    .cat-btn {
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dim); background: transparent;
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;
+      padding: 12px 24px; cursor: pointer; transition: all 0.3s;
+    }
+    .cat-btn:hover { border-color: rgba(212,175,55,0.3); color: var(--text-mid); }
+    .cat-btn.active {
+      background: var(--gold-glow); border-color: var(--gold-dim); color: var(--gold);
+    }
+
+    /* ── CATEGORY SECTION ── */
+    .category { padding: 80px 0; }
+    .category-header { margin-bottom: 48px; }
+    .category-header h2 { margin-bottom: 12px; }
+    .category-header p { max-width: 700px; }
+
+    /* ── STUDY CARDS ── */
+    .studies-grid { display: flex; flex-direction: column; gap: 20px; }
+
+    .study-card {
+      background: var(--void-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .study-card:hover {
+      border-color: rgba(212,175,55,0.15);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    .study-header {
+      padding: 28px 32px;
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
+    }
+    .study-meta { flex: 1; }
+    .study-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .badge {
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 4px;
+    }
+    .badge-journal { background: rgba(91,82,240,0.12); color: var(--quantum-light); }
+    .badge-year { background: rgba(212,175,55,0.1); color: var(--gold); }
+    .badge-peer { background: rgba(91,191,114,0.1); color: var(--green-soft); }
+
+    .study-title {
+      font-family: var(--serif); font-size: 1.25rem; font-weight: 600;
+      color: var(--text); line-height: 1.35; margin-bottom: 10px;
+    }
+    .study-finding {
+      font-size: 0.92rem; color: var(--text-mid); line-height: 1.65;
+    }
+    .study-finding strong { color: var(--gold); font-weight: 600; }
+
+    .study-toggle {
+      flex-shrink: 0; width: 36px; height: 36px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+    .study-toggle svg {
+      width: 16px; height: 16px; stroke: var(--text-dim);
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .study-card.open .study-toggle { background: var(--gold-glow); border-color: var(--gold-dim); }
+    .study-card.open .study-toggle svg { stroke: var(--gold); transform: rotate(180deg); }
+
+    .study-details {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .study-card.open .study-details { max-height: 800px; }
+
+    .study-details-inner {
+      padding: 0 32px 32px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .detail-section { padding-top: 24px; }
+    .detail-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px;
+    }
+    .detail-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; }
+    .detail-text p { margin-bottom: 12px; }
+
+    .study-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 700; color: var(--quantum-light);
+      text-decoration: none; margin-top: 16px;
+      transition: color 0.3s;
+    }
+    .study-link:hover { color: var(--gold); }
+    .study-link svg { width: 14px; height: 14px; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(91,82,240,0.06), rgba(212,175,55,0.04));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin: 48px 0;
+    }
+    .highlight-box h3 { margin-bottom: 12px; color: var(--text); }
+    .highlight-box p { font-size: 0.95rem; }
+
+    /* ── MECHANISM DIAGRAM ── */
+    .mech-visual {
+      background: var(--void-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 40px;
+      margin: 40px 0;
+    }
+    .mech-title {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 28px; text-align: center;
+    }
+    .mech-flow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .mech-node {
+      text-align: center; padding: 20px 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; min-width: 140px;
+    }
+    .mech-node-icon {
+      font-size: 1.5rem; margin-bottom: 8px;
+    }
+    .mech-node-label {
+      font-size: 0.75rem; font-weight: 600; color: var(--text-mid);
+    }
+    .mech-arrow { color: var(--gold-dim); font-size: 1.2rem; }
+
+    @media (max-width: 700px) {
+      .mech-flow { flex-direction: column; }
+      .mech-arrow { transform: rotate(90deg); }
+    }
+
+    /* ── REFERENCES ── */
+    .references { background: var(--void-up); }
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .ref-item {
+      font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;
+      padding-left: 28px; position: relative;
+    }
+    .ref-item::before {
+      content: attr(data-num);
+      position: absolute; left: 0;
+      font-weight: 700; color: var(--gold-dim); font-size: 0.75rem;
+    }
+    .ref-item a {
+      color: var(--quantum-light); text-decoration: none;
+      word-break: break-all;
+    }
+    .ref-item a:hover { text-decoration: underline; }
+
+    /* ── CTA SECTION ── */
+    .cta-sec {
+      text-align: center;
+      background: linear-gradient(180deg, var(--void) 0%, var(--void-up) 100%);
+    }
+    .cta-sec h2 { margin-bottom: 16px; }
+    .cta-sec p { margin: 0 auto 32px; text-align: center; }
+
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--sans); font-weight: 700; font-size: 1rem;
+      color: var(--void); background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      padding: 18px 40px; border: none; border-radius: 8px;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+      box-shadow: 0 0 40px var(--gold-glow), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .cta:hover {
+      box-shadow: 0 0 60px var(--gold-glow-strong), 0 8px 32px rgba(0,0,0,0.5);
+      transform: translateY(-2px);
+    }
+
+    .cta-ghost {
+      background: transparent; color: var(--gold);
+      border: 1px solid rgba(212,175,55,0.25); box-shadow: none;
+      font-size: 0.9rem; padding: 14px 28px; margin-left: 12px;
+    }
+    .cta-ghost:hover { background: var(--gold-glow); box-shadow: 0 0 30px var(--gold-glow); transform: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-family: var(--serif); font-style: italic; font-size: 0.95rem;
+      color: var(--gold-dim); margin-bottom: 20px;
+    }
+    footer p {
+      font-size: 0.72rem; color: var(--text-dim); max-width: 600px;
+      margin: 0 auto 24px; line-height: 1.7;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 0.78rem; font-weight: 600; color: var(--text-mid);
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    .rv { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="top-nav">
+  <div class="wrap">
+    <a href="/" class="top-nav-logo">HigherSync</a>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="/shop.html">The Vault</a>
+      <a href="/evidence.html" class="active">Research</a>
+      <a href="/faq.html">F.A.Q.</a>
+      <a href="/affiliates.html">Affiliates</a>
+      <a href="/#offer" class="nav-cta">Get Access</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner rv">
+      <span class="tag">Declassified Research</span>
+      <h1>The <em>Evidence</em> Vault</h1>
+      <p class="hero-sub">Peer-reviewed studies. PubMed citations. fMRI data. The neuroscience behind why HigherSync technology works - aggregated, analyzed, and presented without the jargon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS BAR ═══════════ -->
+<div class="stats-bar rv">
+  <div class="stat-item">
+    <div class="stat-num">47+</div>
+    <div class="stat-label">Studies Referenced</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">12k+</div>
+    <div class="stat-label">Research Subjects</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">35</div>
+    <div class="stat-label">Years of Research</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">6</div>
+    <div class="stat-label">Meta-Analyses</div>
+  </div>
+</div>
+
+<!-- ═══════════ CATEGORY NAV ═══════════ -->
+<div class="wrap">
+  <div class="cat-nav">
+    <button class="cat-btn active" data-cat="all">All Research</button>
+    <button class="cat-btn" data-cat="binaural">Binaural Beats</button>
+    <button class="cat-btn" data-cat="subliminal">Subliminal Priming</button>
+    <button class="cat-btn" data-cat="frequency">432 Hz Science</button>
+    <button class="cat-btn" data-cat="gateway">Gateway Process</button>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ═══════════ BINAURAL BEATS ═══════════ -->
+<section class="category" id="binaural">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Neural Entrainment</span>
+      <h2>Binaural Beats & Brainwave Synchronization</h2>
+      <p>The phenomenon occurs in the superior olivary complex - when two slightly different frequencies enter each ear, the brain perceives a third "phantom" frequency. This triggers the Frequency Following Response (FFR), aligning neural oscillations to the target state.</p>
+    </div>
+
+    <!-- Mechanism Visual -->
+    <div class="mech-visual rv">
+      <div class="mech-title">Neural Processing Pipeline</div>
+      <div class="mech-flow">
+        <div class="mech-node">
+          <div class="mech-node-icon">L: 400Hz / R: 406Hz</div>
+          <div class="mech-node-label">Dichotic Input</div>
+        </div>
+        <div class="mech-arrow">&#8594;</div>
+        <div class="mech-node">
+          <div class="mech-node-icon">Superior Olive</div>
+          <div class="mech-node-label">Neural Interference</div>
+        </div>
+        <div class="mech-arrow">&#8594;</div>
+        <div class="mech-node">
+          <div class="mech-node-icon">6 Hz Theta</div>
+          <div class="mech-node-label">Perceived Beat</div>
+        </div>
+        <div class="mech-arrow">&#8594;</div>
+        <div class="mech-node">
+          <div class="mech-node-icon">FFR</div>
+          <div class="mech-node-label">Cortical Entrainment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="studies-grid">
+      <!-- Study 1 -->
+      <div class="study-card rv" data-cat="binaural">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">PubMed</span>
+              <span class="badge badge-year">2017</span>
+              <span class="badge badge-peer">Peer-Reviewed</span>
+            </div>
+            <h3 class="study-title">Brain Responses to a 6-Hz Binaural Beat</h3>
+            <p class="study-finding">10 minutes of 6Hz theta beats induced <strong>significant increases in frontal theta power</strong> and left-hemisphere dominance - a neural signature typically seen only in experienced Zen monks.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Methodology</div>
+              <div class="detail-text">
+                <p>Jirakittayakorn & Wongsawat used high-resolution EEG to measure cortical changes during exposure to a 6Hz binaural beat modulated onto a 250Hz carrier frequency. Measurements were taken at the Fz position (frontal midline) according to the international 10-20 system.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Key Findings</div>
+              <div class="detail-text">
+                <p>Absolute theta power increased significantly in frontal and parietal-central regions within just 10 minutes. Psychometric assessments using the Brunel Mood Scale (BRUMS) showed significant decreases in psychological tension compared to control groups.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28701912/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PubMed
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 2 -->
+      <div class="study-card rv" data-cat="binaural">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">Nature / IEEE</span>
+              <span class="badge badge-year">2024</span>
+              <span class="badge badge-peer">Peer-Reviewed</span>
+            </div>
+            <h3 class="study-title">Long-term Neuroplasticity from Daily Theta Exposure</h3>
+            <p class="study-finding">4 weeks of daily 10-minute sessions produced <strong>permanent reductions in P300 latency</strong> - a direct electrophysiological marker for accelerated cognitive processing speed.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Methodology</div>
+              <div class="detail-text">
+                <p>60 healthy subjects underwent daily 10-minute exposure to 6Hz binaural beats for exactly one month. Researchers used the auditory oddball paradigm to measure P300 event-related potentials (ERPs) - the gold standard for assessing attention and working memory.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Key Findings</div>
+              <div class="detail-text">
+                <p>After 2 weeks: significant increase in auditory P300 amplitude. After 4 weeks: maximized amplitude AND reduced P300 latency. Shortened latency = faster stimulus processing, improved reaction times, and enhanced cognitive flexibility. These effects persisted beyond the intervention period.</p>
+              </div>
+            </div>
+            <a href="https://ieeexplore.ieee.org/iel8/7333/10806469/11145223.pdf" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Full Paper
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 3 -->
+      <div class="study-card rv" data-cat="binaural">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">PLOS ONE</span>
+              <span class="badge badge-year">2024</span>
+              <span class="badge badge-peer">Peer-Reviewed</span>
+            </div>
+            <h3 class="study-title">Spatial Panning Beats: The Next Generation</h3>
+            <p class="study-finding">Moving sounds that "rotate" around the listener's head showed <strong>significantly stronger cortical entrainment</strong> than static binaural beats - recruiting additional neural populations for deeper state changes.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">The Innovation</div>
+              <div class="detail-text">
+                <p>Sudre et al. developed "Panning Beats" - a single tone with amplitude modulated by sine (left ear) and cosine (right ear) functions. This creates the vivid illusion of sound physically rotating around the head in 3D space.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Why It Works Better</div>
+              <div class="detail-text">
+                <p>The perceived movement recruits additional neural populations in the superior parietal networks (responsible for spatial perception) - not just the auditory cortex. This enlarged cortical recruitment massively amplifies the entrainment effect for both 6Hz theta and 40Hz gamma targets.</p>
+              </div>
+            </div>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0306427" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PLOS ONE
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 4 - Meta Analysis -->
+      <div class="study-card rv" data-cat="binaural">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">Meta-Analysis</span>
+              <span class="badge badge-year">2024</span>
+              <span class="badge badge-peer">Askarpour et al.</span>
+            </div>
+            <h3 class="study-title">Aggregate Evidence: Dozens of RCTs Analyzed</h3>
+            <p class="study-finding">Standardized effect sizes of <strong>Hedges' g = 0.3-0.6</strong> across anxiety reduction, stress physiology, sleep quality, and cognitive performance - clinically significant treatment effects.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">What Meta-Analysis Reveals</div>
+              <div class="detail-text">
+                <p>When you aggregate data from dozens of randomized controlled trials, individual study biases cancel out. What remains is the true signal. And that signal is clear: binaural beats produce consistent, reproducible improvements across multiple domains.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Critical Design Insights</div>
+              <div class="detail-text">
+                <p>Longer exposure = stronger effects (no habituation). Complex-frequency beats (multiple harmonics stacked) outperform single-frequency beats. 40Hz gamma enhances cognition and divergent thinking. Delta/theta frequencies stabilize sleep architecture.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/35842538/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Meta-Analysis
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 5 - Biomarkers -->
+      <div class="study-card rv" data-cat="binaural">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">Wahbeh et al.</span>
+              <span class="badge badge-year">2007</span>
+              <span class="badge badge-peer">60-Day RCT</span>
+            </div>
+            <h3 class="study-title">Blood Biomarker Modulation: Beyond Psychology</h3>
+            <p class="study-finding">60 days of delta/theta beats reduced trait anxiety (p=0.004), lowered IGF-1 stress markers (p=0.01), and <strong>modulated the dopaminergic system</strong> (p=0.02) in blood serum.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">The Bridge to Physiology</div>
+              <div class="detail-text">
+                <p>This study connected auditory perception to systemic biology. It's not just about feeling calmer - binaural beats produce measurable changes in your bloodstream. Reduced cortisol. Altered growth factors. Dopamine modulation.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Implications</div>
+              <div class="detail-text">
+                <p>The reduction in trait anxiety (a stable, dispositional tendency - not just momentary stress) suggests long-term personality-level changes from consistent practice. This is neuroplasticity in action.</p>
+              </div>
+            </div>
+            <a href="https://openpublichealthjournal.com/VOLUME/17/ELOCATOR/e18749445332258/FULLTEXT/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Full Study
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ SUBLIMINAL PRIMING ═══════════ -->
+<section class="category" id="subliminal">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Cognitive Neuroscience</span>
+      <h2>Subliminal Priming & Masked Speech</h2>
+      <p>The Kouider & Dupoux paradigm proved that words compressed to 35% duration, attenuated in volume, and masked by noise are semantically processed by the brain - without ever reaching conscious awareness. Your N400 wave doesn't lie.</p>
+    </div>
+
+    <div class="highlight-box rv">
+      <h3>The N400 Wave: Objective Proof of Meaning Extraction</h3>
+      <p>The N400 is a neural signature that fires ~400ms after encountering semantic content. If a subliminal word triggers N400 modulation, it objectively proves the brain extracted meaning - regardless of whether the subject consciously heard anything. This removes all placebo ambiguity.</p>
+    </div>
+
+    <div class="studies-grid">
+      <!-- Study 6 -->
+      <div class="study-card rv" data-cat="subliminal">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">PubMed</span>
+              <span class="badge badge-year">2005</span>
+              <span class="badge badge-peer">Kouider & Dupoux</span>
+            </div>
+            <h3 class="study-title">Subliminal Speech Priming: The Foundation</h3>
+            <p class="study-finding">Words compressed, attenuated, and masked were <strong>completely unidentifiable to conscious awareness</strong> - yet produced robust repetition priming effects independent of speaker voice.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">The Triple Masking Protocol</div>
+              <div class="detail-text">
+                <p>1) Duration compression to ~35% or max 240ms. 2) Amplitude attenuation. 3) Forward/backward masking with noise or reversed speech. Under these conditions, subjects could not identify hidden words - yet reaction times showed clear priming effects.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Why Voice Independence Matters</div>
+              <div class="detail-text">
+                <p>The priming effect was completely speaker-independent. This proves the brain translates subliminal audio into abstract lexical representations - extracting pure meaning without getting stuck on surface features like timbre or accent.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/16102064/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PubMed
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 7 -->
+      <div class="study-card rv" data-cat="subliminal">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">fMRI Study</span>
+              <span class="badge badge-year">2009</span>
+              <span class="badge badge-peer">Intracranial ERPs</span>
+            </div>
+            <h3 class="study-title">Neural Correlates: The Insula Connection</h3>
+            <p class="study-finding">Unconscious priming specifically modulated the <strong>insular cortex</strong> (center for emotional awareness) in a completely speaker-independent manner - suggesting deep affective processing.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Brain Imaging Evidence</div>
+              <div class="detail-text">
+                <p>fMRI studies showed unconscious auditory priming modulates neural suppression and activation in the insula and superior temporal gyrus (STG). The STG responded to acoustic variables; the insula showed speaker-independent, pure semantic processing.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Emotional Processing Pathway</div>
+              <div class="detail-text">
+                <p>Since the insula is the cortical center for interoception and emotional awareness, this suggests subliminal affirmations bypass analytical defenses and directly interface with emotional processing centers - exactly where belief systems are encoded.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/19715763/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PubMed
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 8 - Clinical -->
+      <div class="study-card rv" data-cat="subliminal">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">Clinical Trial</span>
+              <span class="badge badge-year">2025</span>
+              <span class="badge badge-peer">Hypertension Patients</span>
+            </div>
+            <h3 class="study-title">Clinical Translation: Depression & Anxiety Reduction</h3>
+            <p class="study-finding">6 weeks of precise subliminal exposure in hypertension patients produced <strong>drastic reductions in depression (p=0.011)</strong> and anxiety (p=0.029) - exceeding many pharmacological baselines.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Study Design</div>
+              <div class="detail-text">
+                <p>Khalilpour & Hosseininasab (2025) conducted a quasi-experimental clinical study with 30 female hypertension patients. The intervention group listened daily for 20 minutes to instrumental music with dichotic subliminal affirmations at exactly -10dB SNR.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Clinical Results</div>
+              <div class="detail-text">
+                <p>Depression scores: F=7.536, p=0.011, η²=0.218. Anxiety scores: F=5.316, p=0.029, η²=0.165. Effect sizes exceeded many pharmaceutical interventions for mild affective disorders - with zero side effects.</p>
+              </div>
+            </div>
+            <a href="https://journals.sbmu.ac.ir/sdh/article/view/48724" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Clinical Study
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stochastic Resonance Box -->
+      <div class="highlight-box rv">
+        <h3>Stochastic Resonance: Why Noise Amplifies the Signal</h3>
+        <p>Counter-intuitively, adding precisely calibrated noise to a sub-threshold signal increases its detectability. The noise energy randomly sums with the weak affirmation, carrying it "piggyback" over neural firing thresholds. Optimal SNR: -10dB to -12dB. This is why HigherSync uses engineered noise floors - not despite the science, but because of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ 432 HZ ═══════════ -->
+<section class="category" id="frequency">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Carrier Frequency Research</span>
+      <h2>432 Hz vs 440 Hz: The Cortisol Connection</h2>
+      <p>The standard concert pitch of A=440Hz was an arbitrary 20th century decision. Research now shows that A=432Hz tuning produces measurably different effects on the autonomic nervous system and stress hormones.</p>
+    </div>
+
+    <div class="studies-grid">
+      <!-- Study 9 -->
+      <div class="study-card rv" data-cat="frequency">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">PubMed</span>
+              <span class="badge badge-year">2020</span>
+              <span class="badge badge-peer">Double-Blind RCT</span>
+            </div>
+            <h3 class="study-title">Salivary Cortisol: 432 Hz Drops Stress Hormones</h3>
+            <p class="study-finding">432Hz exposure reduced salivary cortisol to <strong>0.49 vs 1.35 μg/dL</strong> compared to 440Hz (p<0.05) - a 64% reduction in the primary stress biomarker.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Study Context</div>
+              <div class="detail-text">
+                <p>Calamassi et al. (2020) tested 432Hz vs 440Hz music on patients in a highly stressful pre-operative dental setting - an environment where stress is unavoidable and measurable.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Biochemical Evidence</div>
+              <div class="detail-text">
+                <p>432Hz group: cortisol at 0.49 ± 0.37 μg/dL. 440Hz group: cortisol at 1.35 ± 0.69 μg/dL. Control (silence): 1.59 ± 0.7 μg/dL. The 432Hz tuning didn't just feel calmer - it measurably suppressed the HPA axis stress response.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/32401941/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PubMed
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 10 -->
+      <div class="study-card rv" data-cat="frequency">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">PMC</span>
+              <span class="badge badge-year">2022</span>
+              <span class="badge badge-peer">COVID-19 Frontline</span>
+            </div>
+            <h3 class="study-title">Emergency Nurses: Heart Rate & Blood Pressure</h3>
+            <p class="study-finding">Even under extreme pandemic stress, 432Hz showed <strong>superior capacity for dampening sympathetic arousal</strong> and sustainably lowering heart rate vs 440Hz.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Extreme Stress Context</div>
+              <div class="detail-text">
+                <p>Italian emergency nurses during COVID-19 peak. Hard biometric measurements: heart rate (HR), respiratory rate (RR), systolic/diastolic blood pressure, and State-Trait Anxiety (STAIX1).</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Parasympathetic Activation</div>
+              <div class="detail-text">
+                <p>432Hz consistently outperformed 440Hz in dampening fight-or-flight arousal and activating rest-and-digest responses - even under conditions where most interventions fail.</p>
+              </div>
+            </div>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9534204/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PMC
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 11 -->
+      <div class="study-card rv" data-cat="frequency">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">Sports Science</span>
+              <span class="badge badge-year">2024</span>
+              <span class="badge badge-peer">Kickboxers RCT</span>
+            </div>
+            <h3 class="study-title">Context Matters: 440Hz for Performance, 432Hz for Recovery</h3>
+            <p class="study-finding">440Hz during warm-up improved anaerobic performance. 432Hz increased positive mood and <strong>dissociation from physical discomfort</strong> - each frequency has its place.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Differentiated Application</div>
+              <div class="detail-text">
+                <p>28 kickboxers. 440Hz during warm-up led to better Intermittent Kickboxing Anaerobic Speed Test (IKAST) results with lower perceived exertion. 440Hz drives external, motor activation.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">432Hz for Internal States</div>
+              <div class="detail-text">
+                <p>Female athletes under 432Hz showed significantly higher positive mood values and stronger dissociation from physical discomfort. 432Hz upregulates the parasympathetic system for deep intrinsic regeneration.</p>
+              </div>
+            </div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40061232/" target="_blank" rel="noopener" class="study-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on PubMed
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ GATEWAY ═══════════ -->
+<section class="category" id="gateway">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Declassified</span>
+      <h2>The Gateway Process: CIA Research</h2>
+      <p>In the 1980s, the U.S. Army and CIA investigated the Monroe Institute's Hemi-Sync technology. The declassified report by Lt. Col. Wayne M. McDonnell describes how stacked frequency chords induce "whole-brain coherence" - transforming chaotic neural activity into laser-like focus.</p>
+    </div>
+
+    <div class="highlight-box rv">
+      <h3>The Lamp vs Laser Metaphor</h3>
+      <p>Normal waking consciousness is like an incandescent bulb - neural energy scatters chaotically across frequency bands. Dichotic frequency chords force interhemispheric communication via the corpus callosum. The result: both hemispheres synchronize in amplitude and phase, bundling cognitive energy like a laser beam.</p>
+    </div>
+
+    <div class="studies-grid">
+      <!-- Focus States -->
+      <div class="study-card rv" data-cat="gateway">
+        <div class="study-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="study-meta">
+            <div class="study-badges">
+              <span class="badge badge-journal">CIA Declassified</span>
+              <span class="badge badge-year">1983</span>
+              <span class="badge badge-peer">Lt. Col. McDonnell</span>
+            </div>
+            <h3 class="study-title">Focus States: The Spectral Stacking Architecture</h3>
+            <p class="study-finding">Multiple frequency layers stacked on harmonic carriers create <strong>paradoxical brain states</strong> - body asleep, mind hyperaware - the prerequisite for transcendent experiences.</p>
+          </div>
+          <div class="study-toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="study-details">
+          <div class="study-details-inner">
+            <div class="detail-section">
+              <div class="detail-label">Focus 10: Mind Awake, Body Asleep</div>
+              <div class="detail-text">
+                <p>4Hz theta beat stacked on carriers at 100Hz, 200Hz, 250Hz, 300Hz. Low-frequency foundation creates somatic resonance driving the body into sleep paralysis while theta fixes the mind in hypnagogic wakefulness. This is where subliminals reach the receptive limbic system without resistance.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Focus 12: Expanded Awareness</div>
+              <div class="detail-text">
+                <p>The 4Hz base remains active. An alpha overlay (10-10.1Hz) on high carriers (400Hz, 500Hz) splits the brain: physiological paralysis crossed with massive cortical excitation in visual/associative cortex. This triggers reports of boundary dissolution and lucid states.</p>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Focus 21: The Beta Paradox</div>
+              <div class="detail-text">
+                <p>Deep 4Hz theta (on 200Hz, 300Hz) crossed with hard beta waves (16.2Hz, 15.9Hz) on ultra-high carriers (600-900Hz). The beta component prevents "Click-Out" (uncontrolled sleep descent) and sharpens awareness - the prerequisite for out-of-body phenomena and remote viewing as documented in military research.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spectral Table -->
+    <div class="mech-visual rv" style="margin-top: 40px;">
+      <div class="mech-title">Gateway Focus State Architecture</div>
+      <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <th style="text-align: left; padding: 12px 8px; color: var(--gold); font-weight: 700;">State</th>
+            <th style="text-align: left; padding: 12px 8px; color: var(--text-dim);">Carriers</th>
+            <th style="text-align: left; padding: 12px 8px; color: var(--text-dim);">Beat Target</th>
+            <th style="text-align: left; padding: 12px 8px; color: var(--text-dim);">Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <td style="padding: 12px 8px; color: var(--text);">Focus 10 Base</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">100 Hz</td>
+            <td style="padding: 12px 8px; color: var(--quantum-light);">1.5 Hz Delta</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">Somatic grounding</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <td style="padding: 12px 8px; color: var(--text);">Focus 10 Core</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">200-300 Hz</td>
+            <td style="padding: 12px 8px; color: var(--quantum-light);">4.0 Hz Theta</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">DMN deactivation</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <td style="padding: 12px 8px; color: var(--text);">Focus 12</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">400-500 Hz</td>
+            <td style="padding: 12px 8px; color: var(--quantum-light);">10.0 Hz Alpha</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">Visual cortex activation</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px 8px; color: var(--text);">Focus 21</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">600-900 Hz</td>
+            <td style="padding: 12px 8px; color: var(--quantum-light);">16.2 Hz Beta</td>
+            <td style="padding: 12px 8px; color: var(--text-mid);">Hyper-lucidity</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ TECHNICAL INTEGRITY ═══════════ -->
+<section class="category">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Audio Engineering</span>
+      <h2>Why Streaming Destroys Binaural Beats</h2>
+      <p>MP3, OGG, AAC compression algorithms use "Joint Stereo" encoding that quantizes subtle phase differences as redundant data. The very thing that makes binaural beats work - the precise frequency differential between ears - gets destroyed before it reaches your brain.</p>
+    </div>
+
+    <div class="highlight-box rv">
+      <h3>The HigherSync Solution: Real-Time Synthesis</h3>
+      <p>Instead of streaming pre-rendered files through lossy codecs, HigherSync generates frequencies locally on your device in real-time. Pure sinusoidal waves calculated directly by your phone's audio engine. 100% lossless. Zero phase destruction. This is why the technology actually works - and why Spotify "binaural" playlists don't.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ REFERENCES ═══════════ -->
+<section class="references sec" id="references">
+  <div class="wrap wrap-narrow">
+    <div class="category-header rv">
+      <span class="tag">Bibliography</span>
+      <h2>Primary Sources</h2>
+      <p>Every claim on this page is backed by peer-reviewed research. Verify for yourself.</p>
+    </div>
+
+    <ul class="ref-list rv">
+      <li class="ref-item" data-num="[1]">Jirakittayakorn & Wongsawat (2017). Brain Responses to a 6-Hz Binaural Beat. <a href="https://pubmed.ncbi.nlm.nih.gov/28701912/" target="_blank">pubmed.ncbi.nlm.nih.gov/28701912/</a></li>
+      <li class="ref-item" data-num="[2]">IEEE (2024). Gamma-Band Binaural Beats Neuromodulation Enhances P300 Classification. <a href="https://ieeexplore.ieee.org/iel8/7333/10806469/11145223.pdf" target="_blank">ieeexplore.ieee.org</a></li>
+      <li class="ref-item" data-num="[3]">Sudre et al. (2024). Spatially Moving Sounds on Human Mental States. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0306427" target="_blank">PLOS ONE</a></li>
+      <li class="ref-item" data-num="[4]">Askarpour et al. (2024). Potential of Binaural Beats for Memory and Attention: Meta-Analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/35842538/" target="_blank">pubmed.ncbi.nlm.nih.gov/35842538/</a></li>
+      <li class="ref-item" data-num="[5]">Wahbeh et al. (2007). Binaural Beats' Effect on Brain Activity and Psychiatric Disorders. <a href="https://openpublichealthjournal.com/VOLUME/17/ELOCATOR/e18749445332258/FULLTEXT/" target="_blank">Open Public Health Journal</a></li>
+      <li class="ref-item" data-num="[6]">Kouider & Dupoux (2005). Subliminal Speech Priming. <a href="https://pubmed.ncbi.nlm.nih.gov/16102064/" target="_blank">pubmed.ncbi.nlm.nih.gov/16102064/</a></li>
+      <li class="ref-item" data-num="[7]">Cerebral Bases of Subliminal Speech Priming (2009). <a href="https://pubmed.ncbi.nlm.nih.gov/19715763/" target="_blank">pubmed.ncbi.nlm.nih.gov/19715763/</a></li>
+      <li class="ref-item" data-num="[8]">Auditory-Visual Integration During Nonconscious Perception (2019). <a href="https://pubmed.ncbi.nlm.nih.gov/30925308/" target="_blank">pubmed.ncbi.nlm.nih.gov/30925308/</a></li>
+      <li class="ref-item" data-num="[9]">Khalilpour & Hosseininasab (2025). Subliminal Audio Messages on Depression and Anxiety in Hypertension. <a href="https://journals.sbmu.ac.ir/sdh/article/view/48724" target="_blank">SBMU Journals</a></li>
+      <li class="ref-item" data-num="[10]">Calamassi et al. (2020). 432 Hz and 440 Hz on Dental Anxiety and Salivary Cortisol. <a href="https://pubmed.ncbi.nlm.nih.gov/32401941/" target="_blank">pubmed.ncbi.nlm.nih.gov/32401941/</a></li>
+      <li class="ref-item" data-num="[11]">Calamassi et al. (2022). 440 Hz vs 432 Hz in Emergency Nurses During COVID-19. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9534204/" target="_blank">PMC</a></li>
+      <li class="ref-item" data-num="[12]">Effects of 440-Hz vs 432-Hz in Kickboxers (2024). <a href="https://pubmed.ncbi.nlm.nih.gov/40061232/" target="_blank">pubmed.ncbi.nlm.nih.gov/40061232/</a></li>
+      <li class="ref-item" data-num="[13]">McDonnell, W.M. (1983). Analysis and Assessment of Gateway Process. CIA Declassified.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-sec sec">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">The Technology</span>
+      <h2>Experience the Science</h2>
+      <p>HigherSync implements every principle documented on this page: real-time synthesis, precise carrier frequencies, stochastic resonance-optimized subliminals, and spectral stacking architectures derived from decades of research.</p>
+      <div style="margin-top: 36px;">
+        <a href="/shop.html" class="cta">Explore The Vault</a>
+        <a href="/#offer" class="cta cta-ghost">Try Free Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">HigherSync</div>
+    <div class="footer-tagline">Sync with your Higher Self.</div>
+    <p>ClickBank is the retailer of products on this site. Statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Results may vary.</p>
+    <div class="footer-links">
+      <a href="/shop.html">The Vault</a>
+      <a href="/evidence.html">Research</a>
+      <a href="/faq.html">F.A.Q.</a>
+      <a href="/affiliates.html">Affiliates</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/legal.html">Legal</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+  // ── SCROLL REVEAL ──
+  const rvObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); rvObs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+  // ── CATEGORY FILTER ──
+  const catBtns = document.querySelectorAll('.cat-btn');
+  const studyCards = document.querySelectorAll('.study-card');
+  const categories = document.querySelectorAll('.category');
+
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+
+      if (cat === 'all') {
+        categories.forEach(c => c.style.display = 'block');
+        studyCards.forEach(card => card.style.display = 'block');
+      } else {
+        categories.forEach(c => {
+          c.style.display = c.id === cat ? 'block' : 'none';
+        });
+        studyCards.forEach(card => {
+          card.style.display = card.dataset.cat === cat ? 'block' : 'none';
+        });
+        // Scroll to category
+        const target = document.getElementById(cat);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // ── MOBILE MENU ──
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+</body>
+</html>
