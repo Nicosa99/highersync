@@ -11,6 +11,7 @@
 
   <title>Legal Notice (Impressum) - HigherSync</title>
   <meta name="description" content="Legal Notice and Impressum for HigherSync">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,8 +53,15 @@
     .top-nav-logo {
       font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
       color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: 0px;
     }
     .gold { color: var(--gold); }
+
+    @media (max-width: 850px) {
+      .top-nav { padding: 5px 0; }
+      .top-nav-logo img { height: 65px !important; margin-right: -12px !important; }
+    }
+
     .nav-back {
       font-size: 0.85rem; color: var(--text-mid); text-decoration: none;
       display: flex; align-items: center; gap: 6px;
@@ -119,13 +127,21 @@
       text-transform: uppercase; letter-spacing: 0.08em;
     }
     .footer-links a:hover { color: var(--gold); }
+    .footer-brand {
+      font-family: var(--sans); font-weight: 800; font-size: 0.75rem;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim);
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
 
 <nav class="top-nav">
   <div class="wrap" style="max-width: 800px;">
-    <a href="/" class="top-nav-logo"><span class="gold">&#10023;</span> HigherSync</a>
+    <a href="/" class="top-nav-logo">
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 80px; width: auto; margin-right: -10px; vertical-align: middle;">
+      HigherSync
+    </a>
     <a href="/" class="nav-back">&#8592; Back to Home</a>
   </div>
 </nav>
@@ -224,6 +240,10 @@
 
 <footer>
   <div class="wrap">
+    <div class="footer-brand">
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 100px; width: auto; margin-bottom: 0px; display: block; margin-left: auto; margin-right: auto;">
+      HigherSync
+    </div>
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/privacy.html">Privacy Policy</a>

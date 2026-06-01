@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Access and listen to your HigherSync frequency files.">
+  <title>Dashboard // HigherSync Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --void: #07070A;
+      --void-up: #0D0D12;
+      --void-mid: #14141C;
+      --void-card: #111118;
+      --gold: #D4AF37;
+      --gold-bright: #E8C84A;
+      --gold-dim: #A8892C;
+      --gold-glow: rgba(212,175,55,0.12);
+      --gold-glow-strong: rgba(212,175,55,0.25);
+      --quantum: #5B52F0;
+      --quantum-light: #8B84FF;
+      --quantum-glow: rgba(91,82,240,0.15);
+      --text: #E8E3D9;
+      --text-mid: #9B9588;
+      --text-dim: #5E5A52;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--sans);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 120px; /* Space for bottom player */
+    }
+
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(91,82,240,0.035) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 500px at 85% 75%, rgba(212,175,55,0.025) 0%, transparent 70%);
+    }
+    .ambient::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(7, 7, 10, 0.85);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+      padding: 15px 0;
+    }
+    .top-nav .wrap {
+      max-width: 1120px; margin: 0 auto; padding: 0 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .top-nav-logo {
+      font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center;
+    }
+    .nav-links {
+      display: flex; gap: 30px; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--text-mid); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .nav-cta {
+      padding: 8px 18px; border: 1px solid var(--gold-dim); border-radius: 4px;
+      color: var(--gold) !important; font-size: 0.8rem;
+    }
+    .nav-cta:hover {
+      background: var(--gold-glow);
+    }
+
+    main {
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
+      padding-top: 120px;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── PROFILE HEADER ── */
+    .profile-panel {
+      background: rgba(17, 17, 24, 0.6);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 30px 40px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .profile-info h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .profile-info p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .profile-badge.premium {
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.25);
+      color: var(--gold);
+    }
+    .profile-badge.free {
+      background: rgba(91,82,240,0.1);
+      border: 1px solid rgba(91,82,240,0.25);
+      color: var(--quantum-light);
+    }
+
+    /* ── UPGRADE BANNER ── */
+    .upgrade-banner {
+      background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(91,82,240,0.04));
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 16px;
+      padding: 32px 40px;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .upgrade-text h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .upgrade-text p {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      max-width: 600px;
+    }
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-weight: 700; font-size: 0.9rem;
+      color: var(--void); background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      padding: 14px 28px; border: none; border-radius: 8px;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .upgrade-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px var(--gold-glow-strong);
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--text);
+      margin-bottom: 30px;
+      font-weight: 700;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.15), transparent);
+    }
+
+    /* ── PRODUCT GRID ── */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .archive-card {
+      background: rgba(17, 17, 24, 0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+    }
+
+    .archive-card:hover {
+      border-color: rgba(212, 175, 55, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.05);
+    }
+
+    .card-image-wrapper {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .archive-card:hover .card-image {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-top-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .archive-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .archive-icon svg {
+      width: 18px; height: 18px;
+      color: var(--text-mid);
+    }
+
+    .tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold);
+      padding: 4px 10px; border-radius: 4px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(212,175,55,0.15);
+    }
+
+    .archive-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .archive-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .action-btn {
+      flex-grow: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .action-btn.download {
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      color: var(--void);
+    }
+
+    .action-btn.download:hover {
+      box-shadow: 0 0 20px var(--gold-glow-strong);
+    }
+
+    .action-btn.preview {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .action-btn.preview:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .action-btn.buy {
+      background: var(--quantum);
+      color: white;
+    }
+
+    .action-btn.buy:hover {
+      box-shadow: 0 0 20px var(--quantum-glow);
+      background: var(--quantum-light);
+    }
+
+    /* Bundle Downloads Panel */
+    .bundle-files-container {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: left;
+    }
+    .bundle-files-container.show {
+      display: block;
+    }
+    .bundle-files-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+    .bundle-file-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+    }
+    .bundle-file-name {
+      color: var(--text);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+    .bundle-file-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .bundle-file-btn {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .bundle-file-btn:hover {
+      background: var(--gold-glow-strong);
+      border-color: var(--gold);
+      color: var(--text);
+    }
+
+    /* Locked Card Overlay styling */
+    .archive-card.locked::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(7,7,10,0.4);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .archive-card.locked:hover {
+      border-color: rgba(255,255,255,0.08);
+      transform: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    /* ── AUDIO PLAYER BAR ── */
+    .player-bar {
+      position: fixed;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(150px);
+      width: calc(100% - 48px);
+      max-width: 800px;
+      background: rgba(17, 17, 24, 0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 16px;
+      padding: 16px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(212,175,55,0.08);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 2000;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .player-bar.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .player-ctrl-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      border: none;
+      color: var(--void);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+
+    .player-ctrl-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--gold-glow-strong);
+    }
+
+    .player-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .player-title-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .player-prod-title {
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .player-prod-time {
+      color: var(--text-mid);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .player-timeline-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .player-timeline {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .player-timeline::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .player-timeline::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
+    }
+
+    .player-close {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      padding: 8px;
+      transition: color 0.3s;
+      flex-shrink: 0;
+    }
+
+    .player-close:hover {
+      color: var(--text);
+    }
+
+    /* Loading/Error notifications */
+    .toast {
+      position: fixed;
+      top: 100px; right: 24px;
+      background: rgba(17, 17, 24, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 3000;
+      font-size: 0.9rem;
+      transform: translateY(-50px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast.error {
+      border-color: rgba(226,85,85,0.3);
+      color: #ff8080;
+    }
+    .toast.success {
+      border-color: rgba(91,188,114,0.3);
+      color: var(--green-soft);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-panel { padding: 24px; }
+      .upgrade-banner { padding: 24px; text-align: center; justify-content: center; }
+      .upgrade-btn { width: 100%; justify-content: center; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .player-bar { bottom: 12px; width: calc(100% - 24px); padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <nav class="top-nav">
+    <div class="wrap">
+      <a href="/" class="top-nav-logo">HigherSync</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a onclick="handleLogout()" class="nav-cta">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+      <!-- Profile Header -->
+      <div class="profile-panel">
+        <div class="profile-info">
+          <p>AUTHORIZED USER // KEY DECRYPTED</p>
+          <h2 id="user-email">loading...</h2>
+        </div>
+        <div id="user-badge" class="profile-badge">
+          loading...
+        </div>
+      </div>
+
+      <!-- Upgrade Offer (Only visible to free users) -->
+      <div id="upgrade-panel" class="upgrade-banner" style="display: none;">
+        <div class="upgrade-text">
+          <h3>Unlock the Complete Collection</h3>
+          <p>Get full access to all 12 neuro-acoustic protocols. Accelerate focus, physical sleep recovery, and manifest deep cognitive changes.</p>
+        </div>
+        <a href="https://highersync.pay.clickbank.net/?cbitems=1" target="_blank" class="upgrade-btn">
+          <span>Upgrade to Premium</span>
+          <i data-lucide="sparkles"></i>
+        </a>
+      </div>
+
+      <!-- User's Unlocked Files -->
+      <h2 class="section-title" id="unlocked-title">Decryption Archives</h2>
+      <div class="dashboard-grid" id="unlocked-grid">
+        <!-- JS rendered cards -->
+      </div>
+
+      <!-- Locked Products (Shop CTAs) (Disabled: products not verified yet)
+      <h2 class="section-title" id="locked-title" style="display: none;">Available Protocols</h2>
+      <div class="dashboard-grid" id="locked-grid" style="display: none;">
+        
+      </div>
+      -->
+    </div>
+  </main>
+
+  <!-- BOTTOM PLAYER -->
+  <div class="player-bar" id="player-bar">
+    <button class="player-ctrl-btn" id="player-play-btn" onclick="togglePlay()">
+      <i data-lucide="play" id="play-icon"></i>
+    </button>
+    <div class="player-info">
+      <div class="player-title-row">
+        <span class="player-prod-title" id="player-title">No protocol selected</span>
+        <span class="player-prod-time" id="player-time">0:00 / 0:00</span>
+      </div>
+      <div class="player-timeline-wrapper">
+        <input type="range" class="player-timeline" id="player-progress" value="0" step="1" oninput="seekAudio()">
+      </div>
+    </div>
+    <button class="player-close" onclick="closePlayer()">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <footer>
+    &copy; 2026 HigherSync Lab. All rights reserved. Encryption standard AES-256.
+  </footer>
+
+  <script>
+    // Global player state
+    let audio = new Audio();
+    let currentPlayingId = null;
+    let isPlaying = false;
+
+    // Check auth token
+    const token = localStorage.getItem('highersync_token');
+    if (!token) {
+      window.location.href = '/login';
+    }
+
+    // Set profile info
+    document.getElementById('user-email').innerText = localStorage.getItem('highersync_email') || 'User';
+    const plan = localStorage.getItem('highersync_plan');
+    const badge = document.getElementById('user-badge');
+    
+    if (plan === 'premium') {
+      badge.className = 'profile-badge premium';
+      badge.innerHTML = '<i data-lucide="shield"></i> <span>Premium Member</span>';
+      document.getElementById('upgrade-panel').style.display = 'none';
+    } else {
+      badge.className = 'profile-badge free';
+      badge.innerHTML = '<i data-lucide="user"></i> <span>Free Account</span>';
+      document.getElementById('upgrade-panel').style.display = 'none'; // Disabled: products not verified yet
+    }
+
+    // Load User Products
+    async function loadUserProducts() {
+      try {
+        const response = await fetch('/api/user/products', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          if (response.status === 401 || response.status === 403) {
+            handleLogout();
+            return;
+          }
+          throw new Error('Failed to load products');
+        }
+
+        const data = await response.json();
+        
+        // Refresh local cache of plan just in case
+        if (data.plan !== plan) {
+          localStorage.setItem('highersync_plan', data.plan);
+          location.reload();
+          return;
+        }
+
+        renderGrids(data.products);
+      } catch (err) {
+        console.error('Products load error:', err);
+        showToast('Error loading authorization vault files.', true);
+      }
+    }
+
+    function renderGrids(products) {
+      const unlockedGrid = document.getElementById('unlocked-grid');
+      const lockedGrid = document.getElementById('locked-grid');
+      const lockedGridTitle = document.getElementById('locked-title');
+      
+      const allowedIds = ['higher-self-protocol', 'deep-sleep', 'third-eye-awakening', 'reality-architect', 'boundless-energy'];
+      const unlockedProducts = products.filter(p => p.unlocked && allowedIds.includes(p.id));
+      const lockedProducts = products.filter(p => !p.unlocked);
+
+      // Render Unlocked
+      if (unlockedProducts.length === 0) {
+        unlockedGrid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-dim);">
+            <p>No decryption protocols authorized for this account yet.</p>
+          </div>
+        `;
+      } else {
+        unlockedGrid.innerHTML = unlockedProducts.map(p => {
+          return `
+            <div class="archive-card" id="card-${p.id}">
+              <div class="card-image-wrapper">
+                <img src="${p.image}" alt="${p.title}" class="card-image">
+              </div>
+              <div class="card-content">
+                <div class="card-top-flex">
+                  <div class="archive-icon"><i data-lucide="${p.icon}"></i></div>
+                  <span class="tag">${p.tag}</span>
+                </div>
+                <h3 class="archive-title">${p.title}</h3>
+                <p class="archive-desc">${p.short_desc}</p>
+                <div class="card-actions">
+                  ${p.type !== 'bundle' ? `
+                    <button class="action-btn preview" onclick="playPreview('${p.id}', '${p.title.replace(/'/g, "\\'")}')">
+                      <i data-lucide="play-circle"></i> Listen
+                    </button>
+                  ` : ''}
+                  <button class="action-btn download" onclick="toggleBundleDownloads('${p.id}')">
+                    <i data-lucide="folder-open"></i> Access Files
+                  </button>
+                </div>
+                
+                <div class="bundle-files-container" id="bundle-files-${p.id}">
+                  <div class="bundle-files-title">Available Files</div>
+                  
+                  ${p.id === 'higher-self-protocol' ? `
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">Reality Architecture Guide</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Instructional Manual (PDF)</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('${p.id}', 'pdf')">
+                          <i data-lucide="file-text"></i> PDF
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">Third Eye Awakening</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Theta 4.5Hz / Pineal Resonance</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('third-eye-awakening', 'soultune')">
+                          SoulTune
+                        </button>
+                        <button class="bundle-file-btn" onclick="downloadProduct('third-eye-awakening', 'wav')">
+                          WAV
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">Reality Architect</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Schumann 7.83Hz Grounding</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('reality-architect', 'soultune')">
+                          SoulTune
+                        </button>
+                        <button class="bundle-file-btn" onclick="downloadProduct('reality-architect', 'wav')">
+                          WAV
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">Boundless Energy</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Gamma 40Hz Cognitive Focus</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('boundless-energy', 'soultune')">
+                          SoulTune
+                        </button>
+                        <button class="bundle-file-btn" onclick="downloadProduct('boundless-energy', 'wav')">
+                          WAV
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">Deep Sleep</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Delta 1.5Hz Restorative Sleep</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('deep-sleep', 'soultune')">
+                          SoulTune
+                        </button>
+                        <button class="bundle-file-btn" onclick="downloadProduct('deep-sleep', 'wav')">
+                          WAV
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row" style="border-color: rgba(212,175,55,0.15); background: rgba(212,175,55,0.01);">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name" style="color: var(--gold);">Complete Stack Bundle</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">All .soultune files zipped</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('${p.id}', 'zip')" style="background: var(--gold); color: var(--void);">
+                          <i data-lucide="archive"></i> ZIP
+                        </button>
+                      </div>
+                    </div>
+                  ` : `
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">${p.title} (.soultune)</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">Optimized for SoulTune App</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('${p.id}', 'soultune')">
+                          <i data-lucide="download"></i> Download
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bundle-file-row">
+                      <div style="display: flex; flex-direction: column;">
+                        <span class="bundle-file-name">${p.title} (.wav)</span>
+                        <span style="font-size: 0.65rem; color: var(--text-dim);">High-Fidelity Audio</span>
+                      </div>
+                      <div class="bundle-file-actions">
+                        <button class="bundle-file-btn" onclick="downloadProduct('${p.id}', 'wav')">
+                          <i data-lucide="download"></i> Download
+                        </button>
+                      </div>
+                    </div>
+                  `}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Locked (Disabled: products not verified yet)
+      /*
+      if (lockedProducts.length > 0) {
+        lockedGridTitle.style.display = 'flex';
+        lockedGrid.style.display = 'grid';
+        lockedGrid.innerHTML = lockedProducts.map(p => {
+          const checkoutLink = p.checkout_link || 'https://highersync.pay.clickbank.net/?cbitems=1';
+          return `
+            <div class="archive-card locked" id="card-${p.id}">
+              <div class="card-image-wrapper">
+                <img src="${p.image}" alt="${p.title}" class="card-image">
+              </div>
+              <div class="card-content" style="position: relative; z-index: 3;">
+                <div class="card-top-flex">
+                  <div class="archive-icon"><i data-lucide="lock"></i></div>
+                  <span class="tag" style="background: rgba(255,255,255,0.02); color: var(--text-dim); border-color: rgba(255,255,255,0.05);">${p.tag}</span>
+                </div>
+                <h3 class="archive-title" style="color: var(--text-mid);">${p.title}</h3>
+                <p class="archive-desc">${p.short_desc}</p>
+                <div class="card-actions">
+                  <a href="${checkoutLink}" target="_blank" class="action-btn buy">
+                    <i data-lucide="shopping-cart"></i> Unlock Protocol
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+      */
+
+      lucide.createIcons();
+    }
+
+    function toggleBundleDownloads(productId) {
+      const el = document.getElementById(`bundle-files-${productId}`);
+      if (el) {
+        el.classList.toggle('show');
+      }
+    }
+
+    async function downloadProduct(productId, format = 'soultune') {
+      showToast('Generating secure download token...', false);
+      try {
+        const response = await fetch(`/api/user/download-token/${productId}?format=${format}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          showToast('Starting download...', false);
+          // Redirect browser to secure download link
+          window.location.href = data.downloadUrl;
+        } else {
+          showToast(data.error || 'Failed to authorize download.', true);
+        }
+      } catch (err) {
+        console.error('Download err:', err);
+        showToast('Error requesting download link.', true);
+      }
+    }
+
+    function playPreview(productId, productTitle) {
+      const playerBar = document.getElementById('player-bar');
+      const playerTitle = document.getElementById('player-title');
+      const playIcon = document.getElementById('play-icon');
+
+      if (currentPlayingId === productId) {
+        togglePlay();
+        return;
+      }
+
+      // Stop previous
+      audio.pause();
+      currentPlayingId = productId;
+      playerTitle.innerText = `Preview: ${productTitle}`;
+      playerBar.classList.add('active');
+
+      // Set source using authenticated query string parameter
+      audio.src = `/api/user/preview/${productId}?token=${encodeURIComponent(token)}`;
+      audio.load();
+      
+      showToast('Loading audio stream...', false);
+      
+      audio.play().then(() => {
+        isPlaying = true;
+        updatePlayIconButton();
+      }).catch(err => {
+        console.error('Playback failed:', err);
+        showToast('Audio playback failed or unauthorized.', true);
+        closePlayer();
+      });
+    }
+
+    function togglePlay() {
+      if (!currentPlayingId) return;
+
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+      } else {
+        audio.play().catch(err => {
+          console.error(err);
+          showToast('Error playing audio.', true);
+        });
+        isPlaying = true;
+      }
+      updatePlayIconButton();
+    }
+
+    function updatePlayIconButton() {
+      const playBtn = document.getElementById('player-play-btn');
+      playBtn.innerHTML = isPlaying ? '<i data-lucide="pause" id="play-icon"></i>' : '<i data-lucide="play" id="play-icon"></i>';
+      lucide.createIcons();
+    }
+
+    function closePlayer() {
+      audio.pause();
+      audio.src = '';
+      currentPlayingId = null;
+      isPlaying = false;
+      document.getElementById('player-bar').classList.remove('active');
+    }
+
+    function seekAudio() {
+      const slider = document.getElementById('player-progress');
+      if (audio.duration) {
+        audio.currentTime = slider.value;
+      }
+    }
+
+    // Audio time update event
+    audio.addEventListener('timeupdate', () => {
+      const slider = document.getElementById('player-progress');
+      const timeLabel = document.getElementById('player-time');
+
+      if (audio.duration) {
+        slider.max = Math.floor(audio.duration);
+        slider.value = Math.floor(audio.currentTime);
+        
+        const currentMins = Math.floor(audio.currentTime / 60);
+        const currentSecs = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+        const durationMins = Math.floor(audio.duration / 60);
+        const durationSecs = Math.floor(audio.duration % 60).toString().padStart(2, '0');
+        
+        timeLabel.innerText = `${currentMins}:${currentSecs} / ${durationMins}:${durationSecs}`;
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      isPlaying = false;
+      updatePlayIconButton();
+    });
+
+    // Toast utility
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+
+      toastMsg.innerText = message;
+      toast.className = `toast show ${isError ? 'error' : 'success'}`;
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function handleLogout() {
+      localStorage.clear();
+      window.location.href = '/login';
+    }
+
+    // Load products on start
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      loadUserProducts();
+    });
+  </script>
+</body>
+</html>

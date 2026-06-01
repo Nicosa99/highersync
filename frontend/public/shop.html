@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <meta name="description" content="Shop all HigherSync frequency products.">
   <title>The Vault - HigherSync Archive</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -58,7 +59,7 @@
     .top-nav-logo {
       font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
       color: var(--text); text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 0px;
       position: relative; z-index: 1100;
     }
     .nav-links {
@@ -91,6 +92,8 @@
     }
 
     @media (max-width: 850px) {
+      .top-nav { padding: 5px 0; }
+      .top-nav-logo img { height: 65px !important; margin-right: -12px !important; }
       .menu-toggle { display: flex; }
       .nav-links {
         position: fixed;
@@ -917,14 +920,14 @@
 <nav class="top-nav">
   <div class="wrap">
     <a href="/" class="top-nav-logo">
-      <span class="gold">✧</span> HigherSync
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 80px; width: auto; margin-right: -10px; vertical-align: middle;">
+      HigherSync
     </a>
     <div class="nav-links" id="navLinks">
       <a href="/">Home</a>
-      <!-- <a href="/shop.html" class="active">The Vault</a> -->
       <a href="/evidence.html">Research</a>
       <a href="/faq.html">F.A.Q.</a>
-      <!-- <a href="/affiliates.html">Affiliates</a> -->
+      <a href="/login" id="nav-login-link">Login</a>
     </div>
     <div class="menu-toggle" id="menuToggle">
       <span></span>
@@ -988,7 +991,10 @@
 </main>
 <footer style="border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 0; text-align: center; margin-top: 60px;">
   <div class="wrap">
-    <div class="footer-brand" style="font-family: var(--sans); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">HigherSync</div>
+    <div class="footer-brand" style="font-family: var(--sans); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">
+        <img src="/img/logo.png" alt="HigherSync Logo" style="height: 100px; width: auto; margin-bottom: 0px; display: block; margin-left: auto; margin-right: auto;">
+        HigherSync
+      </div>
     <div class="footer-tagline" style="font-family: var(--serif); font-style: italic; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px;">Sync with your Higher Self.</div>
     
     <div class="footer-links" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 25px;">
@@ -1136,6 +1142,19 @@
           document.body.style.overflow = '';
         });
       });
+
+      // Auth navigation dynamic update
+      const token = localStorage.getItem('highersync_token');
+      const loginLink = document.getElementById('nav-login-link');
+      if (loginLink) {
+        if (token) {
+          loginLink.innerText = 'Vault';
+          loginLink.href = '/dashboard';
+        } else {
+          loginLink.innerText = 'Login';
+          loginLink.href = '/login';
+        }
+      }
   }
   document.addEventListener("DOMContentLoaded", loadShop);
 </script>

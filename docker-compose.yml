@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: highersync-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: highersync
+      POSTGRES_USER: highersync_user
+      POSTGRES_PASSWORD: highersync_secure_db_password_2026
+    ports:
+      - "5434:5432"
+    volumes:
+      - highersync-postgres-data:/var/lib/postgresql/data
+    networks:
+      - highersync-network
+volumes:
+  highersync-postgres-data:
+    driver: local
+networks:
+  highersync-network:
+    driver: bridge

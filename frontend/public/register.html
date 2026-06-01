@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Access the HigherSync neuro-acoustic vault.">
+  <title>Register // HigherSync Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --void: #07070A;
+      --void-up: #0D0D12;
+      --void-mid: #14141C;
+      --void-card: #111118;
+      --gold: #D4AF37;
+      --gold-bright: #E8C84A;
+      --gold-dim: #A8892C;
+      --gold-glow: rgba(212,175,55,0.12);
+      --gold-glow-strong: rgba(212,175,55,0.25);
+      --quantum: #5B52F0;
+      --quantum-light: #8B84FF;
+      --quantum-glow: rgba(91,82,240,0.15);
+      --text: #E8E3D9;
+      --text-mid: #9B9588;
+      --text-dim: #5E5A52;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--sans);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(91,82,240,0.035) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 500px at 85% 75%, rgba(212,175,55,0.025) 0%, transparent 70%);
+    }
+    .ambient::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      border-bottom: 1px solid rgba(212,175,55,0.05);
+      padding: 20px 0;
+    }
+    .top-nav .wrap {
+      max-width: 1120px; margin: 0 auto; padding: 0 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .top-nav-logo {
+      font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(17, 17, 24, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 48px 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.02);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-container::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .auth-header {
+      margin-bottom: 36px;
+    }
+
+    .auth-header h1 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .auth-header p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrapper svg {
+      position: absolute;
+      left: 16px;
+      width: 18px;
+      height: 18px;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    .auth-input {
+      width: 100%;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      padding: 14px 16px 14px 48px;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .auth-input:focus {
+      border-color: var(--gold-dim);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 0 15px rgba(212,175,55,0.05);
+    }
+
+    .auth-btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: var(--void);
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .auth-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px var(--gold-glow-strong);
+    }
+
+    .auth-btn:active {
+      transform: translateY(1px);
+    }
+
+    .auth-footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .auth-footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .auth-footer a:hover {
+      color: var(--gold-bright);
+    }
+
+    .alert-banner {
+      background: rgba(226,85,85,0.08);
+      border: 1px solid rgba(226,85,85,0.2);
+      color: #ff8080;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .alert-banner.show {
+      display: flex;
+    }
+
+    .alert-banner svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.02);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <nav class="top-nav">
+    <div class="wrap">
+      <a href="/" class="top-nav-logo">HigherSync</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1>Initialize Vault</h1>
+        <p>Register to unlock free neuro-acoustic protocols.</p>
+      </div>
+
+      <div id="error-alert" class="alert-banner">
+        <i data-lucide="alert-triangle"></i>
+        <span id="error-message">Registration failed.</span>
+      </div>
+
+      <form id="register-form" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label for="email-input">Digital Identity (Email)</label>
+          <div class="input-wrapper">
+            <i data-lucide="mail"></i>
+            <input type="email" id="email-input" class="auth-input" placeholder="name@domain.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password-input">Decryption Phrase (Password)</label>
+          <div class="input-wrapper">
+            <i data-lucide="lock"></i>
+            <input type="password" id="password-input" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password-input">Confirm Decryption Phrase</label>
+          <div class="input-wrapper">
+            <i data-lucide="lock"></i>
+            <input type="password" id="confirm-password-input" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <button type="submit" id="register-button" class="auth-btn">
+          <span>Create Account</span>
+          <i data-lucide="user-plus"></i>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already registered? <a href="/login" id="login-link">Login Here</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 HigherSync Lab. All rights reserved. Encryption standard AES-256.
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Check if user is already logged in
+    if (localStorage.getItem('highersync_token')) {
+      window.location.href = '/dashboard';
+    }
+
+    async function handleRegister(event) {
+      event.preventDefault();
+      const email = document.getElementById('email-input').value;
+      const password = document.getElementById('password-input').value;
+      const confirmPassword = document.getElementById('confirm-password-input').value;
+      const errorAlert = document.getElementById('error-alert');
+      const errorMessage = document.getElementById('error-message');
+      const registerButton = document.getElementById('register-button');
+
+      if (password !== confirmPassword) {
+        errorMessage.innerText = 'Passwords do not match.';
+        errorAlert.classList.add('show');
+        return;
+      }
+
+      errorAlert.classList.remove('show');
+      registerButton.disabled = true;
+      registerButton.innerHTML = '<span>Creating Account...</span>';
+
+      try {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          localStorage.setItem('highersync_token', data.token);
+          localStorage.setItem('highersync_email', data.email);
+          localStorage.setItem('highersync_plan', data.plan);
+          window.location.href = '/dashboard';
+        } else {
+          errorMessage.innerText = data.error || 'Registration failed.';
+          errorAlert.classList.add('show');
+          registerButton.disabled = false;
+          registerButton.innerHTML = '<span>Create Account</span><i data-lucide="user-plus"></i>';
+          lucide.createIcons();
+        }
+      } catch (err) {
+        console.error('Registration error:', err);
+        errorMessage.innerText = 'Unable to connect to the registration server.';
+        errorAlert.classList.add('show');
+        registerButton.disabled = false;
+        registerButton.innerHTML = '<span>Create Account</span><i data-lucide="user-plus"></i>';
+        lucide.createIcons();
+      }
+    }
+  </script>
+</body>
+</html>

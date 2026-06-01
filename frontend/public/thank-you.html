@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <title>Order Confirmed - The Higher Self Protocol by HigherSync</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <style>
@@ -128,6 +129,29 @@
       padding-top: 24px; line-height: 1.6; opacity: 0.6;
     }
 
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold), #f3d060);
+      color: var(--void);
+      text-decoration: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(212,175,55,0.2);
+    }
+    .cta-btn:hover {
+      box-shadow: 0 0 25px rgba(212,175,55,0.4);
+      transform: translateY(-1px);
+    }
+
     @media(max-width: 600px) {
       .card { padding: 40px 24px; }
       h1 { font-size: 2rem; }
@@ -139,9 +163,12 @@
 
   <div class="ambient"></div>
 
-  <div class="nav">
-    <div class="brand">HigherSync</div>
-  </div>
+  <nav class="nav">
+    <div class="brand" style="display: flex; align-items: center; justify-content: center; gap: 0px;">
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 60px; width: auto; margin-right: -8px;">
+      HigherSync
+    </div>
+  </nav>
 
   <div class="content">
     <div class="card">
@@ -160,26 +187,30 @@
           <div class="step-num">1</div>
           <div class="step-text">
             <strong>Check your email inbox</strong>
-            The system has just generated and dispatched your secure 48-hour download link to the email address you provided at checkout.
+            The system has automatically generated your user credentials and dispatched them to the email address you provided at checkout.
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-text">
-            <strong>Open the link on your phone</strong>
-            Tap the secure link on your mobile device. You will be able to download your unique `.soultune` file and the SoulTune App.
+            <strong>Access your secure Vault</strong>
+            Log in to the HigherSync Vault using your credentials. You can access your PDF guides, SoulTune App files, and high-fidelity WAV audio files at any time.
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-text">
             <strong>Begin your journey</strong>
-            Plug in your headphones, drop into a comfortable position, and let the SoulTune Engine do the rest.
+            Plug in your headphones, download your files, and let the SoulTune Engine do the rest.
           </div>
         </div>
       </div>
 
-      <div class="support">
+      <div style="text-align: center;">
+        <a href="/login" class="cta-btn">Access Your Vault</a>
+      </div>
+
+      <div class="support" style="margin-bottom: 20px;">
         Didn't receive the email? Please check your spam or promotions folder. If it's not there within 5 minutes, contact us at <a href="mailto:hello@highersync.com">hello@highersync.com</a>.
       </div>
 

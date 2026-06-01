@@ -56,3 +56,4 @@ temp.txt
 shop_start.txt
 backend/downloads-tracker.json
 backend/ipn-failures.log
+*.wav

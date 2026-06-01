@@ -57,7 +57,7 @@
     .top-nav-logo {
       font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
       color: var(--text); text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 0px;
       position: relative; z-index: 1100;
     }
     .nav-links {
@@ -97,6 +97,8 @@
     }
 
     @media (max-width: 850px) {
+      .top-nav { padding: 5px 0; }
+      .top-nav-logo img { height: 85px !important; margin-right: -12px !important; }
       .menu-toggle { display: flex; }
       .nav-links {
         position: fixed;
@@ -703,14 +705,14 @@
 <nav class="top-nav">
   <div class="wrap">
     <a href="/" class="top-nav-logo">
-      <span class="gold">✧</span> HigherSync
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 100px; width: auto; margin-right: -10px; vertical-align: middle;">
+      HigherSync
     </a>
     <div class="nav-links" id="navLinks">
       <a href="/" class="active">Home</a>
-      <!-- <a href="/shop.html">The Vault</a> -->
       <a href="/evidence.html">Research</a>
       <a href="/faq.html">F.A.Q.</a>
-      <!-- <a href="/affiliates.html">Affiliates</a> -->
+      <a href="/login" id="nav-login-link">Login</a>
       <a href="#offer" class="nav-cta">Get 72% Off</a>
     </div>
     <div class="menu-toggle" id="menuToggle">
@@ -1104,16 +1106,17 @@
         </div>
 
         <div class="val-stack">
-          <div class="val-row"><span>Third Eye Awakening (4.5 Hz)</span><span>€19.00</span></div>
-          <div class="val-row"><span>Reality Architect (7.83 Hz)</span><span>€19.00</span></div>
-          <div class="val-row"><span>Boundless Energy (40.0 Hz)</span><span>€19.00</span></div>
-          <div class="val-row"><span>Reality Architecture (Digital Book)</span><span>€24.00</span></div>
+          <div class="val-row"><span>Third Eye Awakening (4.5 Hz) &rarr; WAV + .soultune</span><span>€29</span></div>
+          <div class="val-row"><span>Reality Architect (7.83 Hz) &rarr; WAV + .soultune</span><span>€29</span></div>
+          <div class="val-row"><span>Boundless Energy (40.0 Hz) &rarr; WAV + .soultune</span><span>€29</span></div>
+          <div class="val-row"><span>Deep Sleep Protocol (Delta) &rarr; WAV + .soultune</span><span>€29</span></div>
+          <div class="val-row"><span>Reality Architecture (Book PDF)</span><span>€24</span></div>
         </div>
-        <div class="val-total"><span>Total Value</span><span style="color:var(--text-dim);text-decoration:line-through;">€80.00</span></div>
+        <div class="val-total"><span>Total Value</span><span style="color:var(--text-dim);text-decoration:line-through;">€140</span></div>
 
         <div class="price-block">
-          <span class="price-old">€80.00</span>
-          <span class="price-new">€39.00</span>
+          <span class="price-old">€140</span>
+          <span class="price-new">€39</span>
         </div>
         <div class="price-note">
           One-time payment &bull; Lifetime access &bull; No subscription<br><br>
@@ -1124,7 +1127,7 @@
         </div>
         <div class="price-compare">Less than a single therapy session. Results you can feel from night one.</div>
 
-        <a href="https://highersync.pay.clickbank.net/?cbitems=HIGHERSELF" class="cta offer-cta">
+        <a href="https://highersync.pay.clickbank.net/?cbitems=1" class="cta offer-cta">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           Yes - Unlock The Protocol
         </a>
@@ -1196,7 +1199,10 @@
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
     <div class="wrap">
-      <div class="footer-brand">HigherSync</div>
+      <div class="footer-brand">
+        <img src="/img/logo.png" alt="HigherSync Logo" style="height: 100px; width: auto; margin-bottom: 0px; display: block; margin-left: auto; margin-right: auto;">
+        HigherSync
+      </div>
       <div class="footer-tagline">Tune into your Higher Self.</div>
       <p>ClickBank is the retailer of this product. Statements on this page have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Results may vary. Individual testimonials reflect personal experience and are not guaranteed outcomes. By using this site you agree to follow the Privacy Policy and Terms & Conditions printed on this site.</p>
 
@@ -1348,6 +1354,19 @@
       document.body.style.overflow = '';
     });
   });
+
+  // Auth navigation dynamic update
+  const token = localStorage.getItem('highersync_token');
+  const loginLink = document.getElementById('nav-login-link');
+  if (loginLink) {
+    if (token) {
+      loginLink.innerText = 'Vault';
+      loginLink.href = '/dashboard';
+    } else {
+      loginLink.innerText = 'Login';
+      loginLink.href = '/login';
+    }
+  }
 </script>
 
 </body>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- Primary SEO -->
   <title>FAQ - Binaural Beats Science & HigherSync Technology | Peer-Reviewed Research</title>
@@ -348,16 +349,18 @@
 
 <nav class="top-nav">
   <div class="wrap wrap-wide">
-    <a href="/" class="top-nav-logo"><span class="gold">&#10023;</span> HigherSync</a>
+    <a href="/" class="top-nav-logo">
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 80px; width: auto; margin-right: -10px; vertical-align: middle;">
+      HigherSync
+    </a>
     <div class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-links" id="navLinks">
       <a href="/">Home</a>
-      <!-- <a href="/shop.html">The Vault</a> -->
       <a href="/evidence.html">Research</a>
       <a href="/faq.html" class="active">F.A.Q.</a>
-      <!-- <a href="/affiliates.html">Affiliates</a> -->
+      <a href="/login" id="nav-login-link">Login</a>
     </div>
   </div>
 </nav>
@@ -421,7 +424,7 @@
             <p><strong>Meta-Analyses (2024):</strong> Askarpour et al. aggregated data from dozens of randomized controlled trials, finding consistent effect sizes (Hedges' g = 0.3-0.6) for anxiety reduction, stress physiology, sleep quality, and cognitive performance.<span class="citation">PubMed</span></p>
             <p><strong>Neuroplasticity Study (2024):</strong> Published in IEEE/Nature, 4 weeks of daily 10-minute theta exposure permanently reduced P300 latency - an objective electrophysiological marker for accelerated cognitive processing.<span class="citation">IEEE</span></p>
             <p><strong>Biomarker Modulation (2007):</strong> Wahbeh et al. showed 60 days of delta/theta beats reduced trait anxiety (p=0.004) and modulated blood serum dopamine (p=0.02).<span class="citation">Clinical Trial</span></p>
-            <p><strong>CIA Gateway Report (1983):</strong> Declassified military research documented how stacked frequency chords induce hemispheric synchronization.<span class="citation">Declassified</span></p>
+            <p><strong>Government-commissioned research (1983):</strong> Research on altered states documented how stacked frequency chords induce hemispheric synchronization.<span class="citation">Research Vault</span></p>
             <p><a href="/evidence.html">Access all 47+ studies in our Research Vault &#8594;</a></p>
           </div>
         </div>
@@ -633,7 +636,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-brand">HigherSync</div>
+    <div class="footer-brand">
+      <img src="/img/logo.png" alt="HigherSync Logo" style="height: 100px; width: auto; margin-bottom: 0px; display: block; margin-left: auto; margin-right: auto;">
+      HigherSync
+    </div>
     <div class="footer-tagline">Sync with your Higher Self.</div>
     <p>ClickBank is the retailer of products on this site. Statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Results may vary.</p>
     <div class="footer-links">
@@ -677,6 +683,19 @@
       document.body.style.overflow = '';
     });
   });
+
+  // Auth navigation dynamic update
+  const token = localStorage.getItem('highersync_token');
+  const loginLink = document.getElementById('nav-login-link');
+  if (loginLink) {
+    if (token) {
+      loginLink.innerText = 'Vault';
+      loginLink.href = '/dashboard';
+    } else {
+      loginLink.innerText = 'Login';
+      loginLink.href = '/login';
+    }
+  }
 </script>
 
 </body>
